@@ -1,33 +1,74 @@
 import styled from "styled-components";
-import SearchInput from "../components/atoms/Input/SearchInput";
 import background from "../images/background.jpg";
 import Button from "../components/atoms/Button/Button";
 import { Link } from "react-router-dom";
 
 const StyledWrap = styled.div`
   background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0)), url(${background});
-  background-size: 200%;
-  background-position: center;
+  background-size: 120%;
+  background-position: 60% 100%;
   height: 100vh;
   display: flex;
-  flex-direction: column;
-  position: relative;
+
+  @media (max-width: 2000px) {
+    background-position: 100% 100%;
+  }
+
+  @media (max-width: 1800px) {
+    background-position: 80% 100%;
+  }
+
+  @media (max-width: 1680px) {
+    background-position: 70% 100%;
+  }
+
+  @media (max-width: 1600px) {
+    background-size: 130%;
+    background-position: 60% 100%;
+  }
+
+  @media (max-width: 1500px) {
+    background-size: 140%;
+  }
+
+  @media (max-width: 1400px) {
+    background-size: 150%;
+  }
+
+  @media (max-width: 1300px) {
+    background-size: 160%;
+  }
+
+  @media (max-width: 1200px) {
+    background-size: 170%;
+    font-size: 90%;
+  }
+
+  @media (max-width: 1100px) {
+    background-size: 180%;
+    font-size: 85%;
+  }
+
+  @media (max-width: 1000px) {
+    background-size: 200%;
+    font-size: 80%;
+  }
+
+  @media (max-width: 900px) {
+    background-size: 250%;
+    font-size: 80%;
+  }
+
+  @media (max-width: 850px) {
+    background-size: 280%;
+  }
 `;
 
 const MainText = styled.div`
-  flex: 90%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-`;
-
-const StyedSearchInput = styled(SearchInput)`
-  margin: 1%;
-  width: 50%;
-  position: absolute;
-  left: 10%;
-  top: 2%;
 `;
 
 const StyledH1 = styled.h1`
@@ -62,7 +103,6 @@ const StyledLink = styled(Link)`
 const HomePage = () => {
   return (
     <StyledWrap>
-      <StyedSearchInput placeholder="Find Me - Your Perfect Recipe for Today"></StyedSearchInput>
       <MainText>
         <StyledH1>
           Healthy Recipes <br />
