@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import SearchInput from "../components/atoms/Input/SearchInput";
 import background from "../images/background.jpg";
+import Button from "../components/atoms/Button/Button";
+import { Link } from "react-router-dom";
 
 const StyledWrap = styled.div`
   background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0)), url(${background});
@@ -39,13 +41,22 @@ const StyledH1 = styled.h1`
 
 const StyledH2 = styled.h2`
   width: 30%;
-  height: 20%;
+  height: fit-content;
   font-weight: ${({ theme }) => theme.extraLight};
   font-size: 140%;
   line-height: 1.2;
   color: #1c2025;
   margin: 20px 0;
   text-align: center;
+`;
+
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: #fff;
+  padding: 20px 40px;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 80%;
 `;
 
 const HomePage = () => {
@@ -61,6 +72,9 @@ const HomePage = () => {
           Eat delicious and healthy every day. In our database you will find <strong>10,000</strong> recipes. Ingredients, proportions, shopping list on one website.{" "}
           <strong>We are there for you.</strong>
         </StyledH2>
+        <Button>
+          <StyledLink to={`/recipes`}> Explore recipes</StyledLink>
+        </Button>
       </MainText>
     </StyledWrap>
   );
