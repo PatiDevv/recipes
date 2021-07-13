@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
-import SearchInput from "../components/atoms/Input/SearchInput";
 import styled from "styled-components";
+import Header from "../components/organisms/Header";
+import RecipeCard from "../components/organisms/RecipeCard";
 
 export const initialState = {
   recipes: [
@@ -23,24 +24,26 @@ export const initialState = {
   ],
 };
 
-const StyedSearchInput = styled(SearchInput)`
-  margin: 1%;
-  width: 50%;
-  position: absolute;
-  left: 10%;
-  top: 2%;
+const StyledWrapper = styled.div`
+  background-color: #f9f7f4;
+  background-size: 100%;
+  width: 100vw;
+  height: 100vh;
+
+  margin: 0;
 `;
 
 const Recipes = () => {
   return (
-    <>
-      <StyedSearchInput placeholder="Find Me - Your Perfect Recipe for Today"></StyedSearchInput>
-      {initialState.recipes.map((item) => (
+    <StyledWrapper>
+      <Header></Header>
+      <RecipeCard></RecipeCard>{" "}
+      {/* {initialState.recipes.map((item) => (
         <Link key={item.id} to={`/recipes/${item.id}`}>
-          <h1> Tytuł: {item.title}</h1>
+          <StyledH1> Tytuł: {item.title}</StyledH1>
         </Link>
-      ))}
-    </>
+      ))} */}
+    </StyledWrapper>
   );
 };
 
