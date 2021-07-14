@@ -14,7 +14,7 @@ body{
     font-family: 'Neuton', serif;
     margin: 0;
     padding: 0;
-    @import url("https://fonts.googleapis.com/css2?family=Neuton:wght@200;300;400;700;800&display=swap");
+
 }
 `;
 
