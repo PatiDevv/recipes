@@ -6,7 +6,7 @@ interface IRecipeParams {
 }
 
 const DetailsRecipe = ({ match: { params } }: RouteComponentProps<IRecipeParams>) => {
-  console.log(params.id);
+  // console.log(params.id);
 
   const itemRecipe = initialState.recipes.find((item) => item.id.toString() === params.id);
 

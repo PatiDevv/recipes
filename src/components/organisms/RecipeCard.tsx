@@ -1,10 +1,10 @@
 import styled from "styled-components";
-import ImageAssets from "../../constants/imageAssets";
+import { FakeDataItem } from "../../store/recipesData";
 
 const StyledWrapper = styled.div`
   background-color: #ede7de;
   height: 40%;
-  width: 30%;
+  width: 400px;
   border-radius: 30px;
   font-size: 18px;
   font-weight: 400;
@@ -12,10 +12,9 @@ const StyledWrapper = styled.div`
 `;
 
 const ImageWrapper = styled.img`
-  height: 60%;
-  width: 100%;
-  background-position: center;
   border-radius: 30px 30px 0 0;
+  height: 300px;
+  width: 400px;
 `;
 
 const StyledTable = styled.div`
@@ -61,21 +60,16 @@ const Line = styled.hr`
   margin: 0 35%;
 `;
 
-interface RecipeCardProps {
-  name: string;
-  calories: number;
-  protein: number;
-  carbs: number;
-  fats: number;
+interface RecipeCardProps extends FakeDataItem {
   time: number;
 }
 
-const RecipeCard = ({ name, calories, protein, carbs, fats, time }: RecipeCardProps) => {
+const RecipeCard = ({ name, calories, protein, carbs, fat, time, image }: RecipeCardProps) => {
   return (
     <StyledWrapper>
-      <ImageWrapper src={ImageAssets.burger} alt="Jedzenie" />
+      <ImageWrapper src={image} alt="Jedzenie" />
 
-      <Header>{name}</Header>
+      <Header>{name.length > 35 ? name.substring(0, 35) + "..." : name}</Header>
       <Line />
       <StyledTable>
         <H3Button>Calories</H3Button>
@@ -85,9 +79,9 @@ const RecipeCard = ({ name, calories, protein, carbs, fats, time }: RecipeCardPr
         <H3Button>Time</H3Button>
         <H3Top>{calories}</H3Top>
         <H3Top>{protein}</H3Top>
-        <H3Top>{fats}</H3Top>
         <H3Top>{carbs}</H3Top>
-        <H3Top>{time}</H3Top>
+        <H3Top>{fat}</H3Top>
+        <H3Top>{time}'</H3Top>
       </StyledTable>
     </StyledWrapper>
   );

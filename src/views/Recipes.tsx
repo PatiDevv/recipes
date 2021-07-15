@@ -1,7 +1,7 @@
-import { Link } from "react-router-dom";
 import styled from "styled-components";
 import Header from "../components/organisms/Header";
 import RecipeCard from "../components/organisms/RecipeCard";
+import fakeDataArray from "../store/recipesData";
 
 export const initialState = {
   recipes: [
@@ -33,11 +33,23 @@ const StyledWrapper = styled.div`
   margin: 0;
 `;
 
+const RecipeCardWrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  margin: 3%;
+  justify-content: center;
+`;
+
 const Recipes = () => {
   return (
     <StyledWrapper>
       <Header></Header>
-      <RecipeCard></RecipeCard>{" "}
+      <RecipeCardWrapper>
+        {fakeDataArray.map((item, i) => (
+          <RecipeCard key={i} {...item} time={item.cooktime + item.waittime + item.preptime}></RecipeCard>
+        ))}
+      </RecipeCardWrapper>
+
       {/* {initialState.recipes.map((item) => (
         <Link key={item.id} to={`/recipes/${item.id}`}>
           <StyledH1> Tytuł: {item.title}</StyledH1>
