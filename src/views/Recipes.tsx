@@ -1,11 +1,10 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
-import { globalSearch } from "../actions/indnex";
 import Header from "../components/organisms/Header";
 import RecipeCard from "../components/organisms/RecipeCard";
 import { filterRecipes } from "../helpers/FilterRecipes";
-import { RootState } from "../reducers";
+import { globalSearch, GlobalState } from "../redux/global";
 
 const StyledWrapper = styled.div`
   background-color: #f9f7f4;
@@ -24,8 +23,8 @@ const RecipeCardWrapper = styled.div`
 `;
 
 const Recipes = () => {
-  const recipes = useSelector((s: RootState) => s.recipesData);
-  const search = useSelector((s: RootState) => s.search);
+  const recipes = useSelector((s: GlobalState) => s.recipesData);
+  const search = useSelector((s: GlobalState) => s.search);
 
   const dispatch = useDispatch();
 

@@ -5,7 +5,7 @@ import { routes } from "../routes";
 import NotFound from "./NotFound";
 import DetailsRecipe from "./DetailsRecipe";
 import { Provider } from "react-redux";
-import store from "../store/index";
+import store from "../redux";
 
 const Root = () => {
   return (
@@ -18,7 +18,7 @@ const Root = () => {
           <Route path={routes.notfound} component={NotFound} />
           <Route path={"*"} render={() => <Redirect to={routes.notfound} />} />
         </Switch>
-      </BrowserRouter>{" "}
+      </BrowserRouter>
     </Provider>
   );
 };

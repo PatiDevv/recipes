@@ -1,12 +1,13 @@
 import { useSelector } from "react-redux";
 import { RouteComponentProps } from "react-router";
-import { RootState } from "../reducers";
+import { GlobalState } from "../redux/global";
+
 interface IRecipeParams {
   id: string;
 }
 
 const DetailsRecipe = ({ match: { params } }: RouteComponentProps<IRecipeParams>) => {
-  const recipes = useSelector((s: RootState) => s.recipesData);
+  const recipes = useSelector((s: GlobalState) => s.recipesData);
 
   const itemRecipe = recipes.find((item) => item.id.toString() === params.id);
 

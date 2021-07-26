@@ -1,9 +1,8 @@
 import styled from "styled-components";
 import Button from "../atoms/Button/Button";
 import SearchInput from "../atoms/Input/SearchInput";
-import { globalSearch } from "../../actions/indnex";
 import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../../reducers";
+import { globalSearch, GlobalState } from "../../redux/global";
 
 const StyedSearchInput = styled(SearchInput)`
   margin: 1%;
@@ -34,7 +33,7 @@ const StyledWrapper = styled.div`
 
 export const Header = () => {
   const dispatch = useDispatch();
-  const recipes = useSelector((s: RootState) => s.recipesData);
+  const recipes = useSelector((s: GlobalState) => s.recipesData);
 
   return (
     <StyledWrapper>

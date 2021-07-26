@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { FakeDataItem } from "../../store/recipesData";
+import { FakeDataItem } from "../../redux/global";
 
 const StyledWrapper = styled.div`
   background-color: #ede7de;
