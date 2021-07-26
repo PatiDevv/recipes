@@ -7,7 +7,7 @@ export interface RootState {
   search: string;
 }
 
-const initialState: RootState = {
+export const initialState: RootState = {
   recipesData: fakeDataArray,
   search: "",
 };

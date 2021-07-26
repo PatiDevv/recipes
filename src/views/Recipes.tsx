@@ -1,28 +1,11 @@
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
+import { globalSearch } from "../actions/indnex";
 import Header from "../components/organisms/Header";
 import RecipeCard from "../components/organisms/RecipeCard";
-import fakeDataArray from "../store/recipesData";
-
-export const initialState = {
-  recipes: [
-    {
-      id: 1,
-      title: "Przeps 1",
-    },
-    {
-      id: 2,
-      title: "Przeps 2",
-    },
-    {
-      id: 3,
-      title: "Przeps 3",
-    },
-    {
-      id: 4,
-      title: "Przeps 4",
-    },
-  ],
-};
+import { filterRecipes } from "../helpers/FilterRecipes";
+import { RootState } from "../reducers";
 
 const StyledWrapper = styled.div`
   background-color: #f9f7f4;
@@ -41,20 +24,23 @@ const RecipeCardWrapper = styled.div`
 `;
 
 const Recipes = () => {
+  const recipes = useSelector((s: RootState) => s.recipesData);
+  const search = useSelector((s: RootState) => s.search);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(globalSearch(""));
+  }, []);
+
   return (
     <StyledWrapper>
       <Header></Header>
       <RecipeCardWrapper>
-        {fakeDataArray.map((item, i) => (
+        {filterRecipes(recipes, search).map((item, i) => (
           <RecipeCard key={i} {...item} time={item.cooktime + item.waittime + item.preptime}></RecipeCard>
         ))}
       </RecipeCardWrapper>
-
-      {/* {initialState.recipes.map((item) => (
-        <Link key={item.id} to={`/recipes/${item.id}`}>
-          <StyledH1> Tytuł: {item.title}</StyledH1>
-        </Link>
-      ))} */}
     </StyledWrapper>
   );
 };
