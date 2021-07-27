@@ -1,7 +1,14 @@
-import { GlobalAction, GlobalState } from "./global";
+import { TypedUseSelectorHook, useSelector } from 'react-redux';
+import { GlobalAction, GlobalState } from './global';
+import { UserAction, UserState } from './user';
 
-export type KnownAction = GlobalAction;
+export const useAppSelector: TypedUseSelectorHook<AppState> = useSelector;
 
-export type AppState = GlobalState;
+export type KnownAction = GlobalAction | UserAction;
+
+export interface AppState {
+  Global: GlobalState;
+  User: UserState;
+}
 
 export type ThunkKnownAction = (dispatch: (action: KnownAction) => void, getState: () => AppState) => void;

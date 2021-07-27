@@ -1,5 +1,5 @@
-import { Reducer } from "redux";
-import fakeDataArray from "./recipesData";
+import { Reducer } from 'redux';
+import fakeDataArray from './recipesData';
 
 // ------------------- Reducer State & Action Types ------------------- //
 
@@ -34,21 +34,13 @@ export interface FakeDataItem {
 
 // Action Types //
 
-export type GlobalAction =
-  | {
-      type: "SEARCH";
-      search: string;
-    }
-  | {
-      type: "CHANGE_THEME";
-      theme: "dark" | "light";
-    };
+export type GlobalAction = { type: 'SEARCH'; search: string } | { type: 'CHANGE_THEME'; theme: 'dark' | 'light' };
 
 // ------------------- Actions ------------------- //
 
 export const globalSearch = (search: string): GlobalAction => {
   return {
-    type: "SEARCH",
+    type: 'SEARCH',
     search: search,
   };
 };
@@ -57,12 +49,12 @@ export const globalSearch = (search: string): GlobalAction => {
 
 export const initialState: GlobalState = {
   recipesData: fakeDataArray,
-  search: "",
+  search: '',
 };
 
 const globalReducer: Reducer<GlobalState, GlobalAction> = (state = initialState, action): GlobalState => {
   switch (action.type) {
-    case "SEARCH": {
+    case 'SEARCH': {
       return {
         ...state,
         search: action.search,

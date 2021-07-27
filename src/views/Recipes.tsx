@@ -1,10 +1,11 @@
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import styled from "styled-components";
-import Header from "../components/organisms/Header";
-import RecipeCard from "../components/organisms/RecipeCard";
-import { filterRecipes } from "../helpers/FilterRecipes";
-import { globalSearch, GlobalState } from "../redux/global";
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import styled from 'styled-components';
+import Header from '../components/organisms/Header';
+import RecipeCard from '../components/organisms/RecipeCard';
+import { filterRecipes } from '../helpers/FilterRecipes';
+import { globalSearch } from '../redux/global';
+import { useAppSelector } from '../redux/types';
 
 const StyledWrapper = styled.div`
   background-color: #f9f7f4;
@@ -23,20 +24,21 @@ const RecipeCardWrapper = styled.div`
 `;
 
 const Recipes = () => {
-  const recipes = useSelector((s: GlobalState) => s.recipesData);
-  const search = useSelector((s: GlobalState) => s.search);
+  // const recipes = useAppSelector((s) => s.Global.recipesData);
+  // const search = useAppSelector((s) => s.Global.search);
+  const { recipesData, search } = useAppSelector((s) => s.Global);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(globalSearch(""));
+    dispatch(globalSearch(''));
   }, []);
 
   return (
     <StyledWrapper>
       <Header></Header>
       <RecipeCardWrapper>
-        {filterRecipes(recipes, search).map((item, i) => (
+        {filterRecipes(recipesData, search).map((item, i) => (
           <RecipeCard key={i} {...item} time={item.cooktime + item.waittime + item.preptime}></RecipeCard>
         ))}
       </RecipeCardWrapper>
