@@ -1,7 +1,7 @@
-import styled from "styled-components";
-import background from "../images/background.jpg";
-import Button from "../components/atoms/Button/Button";
-import { Link } from "react-router-dom";
+import styled from 'styled-components';
+import background from '../images/background.jpg';
+import Button from '../components/atoms/Button/Button';
+import { Link } from 'react-router-dom';
 
 const StyledWrap = styled.div`
   background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0)), url(${background});
@@ -109,7 +109,7 @@ const HomePage = () => {
           for every day
         </StyledH1>
         <StyledH2>
-          Eat delicious and healthy every day. In our database you will find <strong>10,000</strong> recipes. Ingredients, proportions, shopping list on one website.{" "}
+          Eat delicious and healthy every day. In our database you will find <strong>10,000</strong> recipes. Ingredients, proportions, shopping list on one website.{' '}
           <strong>We are there for you.</strong>
         </StyledH2>
         <Button>

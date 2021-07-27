@@ -1,5 +1,6 @@
-import styled from "styled-components";
-import { FakeDataItem } from "../../redux/global";
+import { useHistory } from 'react-router-dom';
+import styled from 'styled-components';
+import { FakeDataItem } from '../../redux/global';
 
 const StyledWrapper = styled.div`
   background-color: #ede7de;
@@ -9,6 +10,7 @@ const StyledWrapper = styled.div`
   font-size: 18px;
   font-weight: 400;
   margin: 1%;
+  cursor: pointer;
 `;
 
 const ImageWrapper = styled.img`
@@ -64,12 +66,14 @@ interface RecipeCardProps extends FakeDataItem {
   time: number;
 }
 
-const RecipeCard = ({ name, calories, protein, carbs, fat, time, image }: RecipeCardProps) => {
+const RecipeCard = ({ name, calories, protein, carbs, fat, time, image, id }: RecipeCardProps) => {
+  const history = useHistory();
+
   return (
-    <StyledWrapper>
+    <StyledWrapper onClick={() => history.push(id)}>
       <ImageWrapper src={image} alt="Jedzenie" />
 
-      <Header>{name.length > 35 ? name.substring(0, 35) + "..." : name}</Header>
+      <Header>{name.length > 35 ? name.substring(0, 35) + '...' : name}</Header>
       <Line />
       <StyledTable>
         <H3Button>Calories</H3Button>
