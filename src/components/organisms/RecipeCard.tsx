@@ -1,6 +1,7 @@
 import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import { FakeDataItem } from '../../redux/global';
+import { getRoute, routes } from '../../routes';
 
 const StyledWrapper = styled.div`
   background-color: #ede7de;
@@ -70,7 +71,7 @@ const RecipeCard = ({ name, calories, protein, carbs, fat, time, image, id }: Re
   const history = useHistory();
 
   return (
-    <StyledWrapper onClick={() => history.push(id)}>
+    <StyledWrapper onClick={() => history.push(getRoute.recipe(id))}>
       <ImageWrapper src={image} alt="Jedzenie" />
 
       <Header>{name.length > 35 ? name.substring(0, 35) + '...' : name}</Header>
