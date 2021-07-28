@@ -28,9 +28,19 @@ const H1 = styled.h1`
   padding: 1% 0 0 5%;
 `;
 
+const H2 = styled.h2`
+  color: #fff;
+  font-size: 300%;
+  font-weight: 400;
+  width: 50vw;
+  line-height: 0.9;
+  margin: 0;
+  text-align: center;
+`;
+
 const H5 = styled.h5`
   color: #fff;
-  font-size: 60%;
+  font-size: 70%;
   width: 50vw;
   line-height: 0.9;
   margin: 0;
@@ -47,13 +57,28 @@ const StyledNavLink = styled(NavLink)`
   }
 `;
 
+const StyledViewNotFound = styled.div`
+  background: #1d976c; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #93f9b9, #1d976c); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #93f9b9, #1d976c); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+`;
+
 const DetailsRecipe = ({ match: { params } }: RouteComponentProps<IRecipeParams>) => {
   const recipes = useAppSelector((s) => s.Global.recipesData);
 
   const itemRecipe = recipes.find((item) => item.id.toString() === params.id);
 
   if (itemRecipe == null) {
-    return <h1>Nie znaleziono przepisu o id: {params.id}</h1>;
+    return (
+      <StyledViewNotFound>
+        <H2> Niestety, przepis o id: {params.id} nie istnieje. Sprópuj jeszcze raz. ;) </H2>
+      </StyledViewNotFound>
+    );
   }
 
   return (
