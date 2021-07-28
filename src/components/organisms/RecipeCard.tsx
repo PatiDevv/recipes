@@ -18,6 +18,7 @@ const ImageWrapper = styled.img`
   border-radius: 30px 30px 0 0;
   height: 300px;
   width: 400px;
+  object-fit: cover;
 `;
 
 const StyledTable = styled.div`
