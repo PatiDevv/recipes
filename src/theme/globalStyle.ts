@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components';
 
 const GlobalSyle = createGlobalStyle`
 
@@ -10,7 +10,7 @@ const GlobalSyle = createGlobalStyle`
 
 body{
     font-size: 20px;
-    color: #1C2025;
+    color: #fff;
     font-family: 'Neuton', serif;
     margin: 0;
     padding: 0;

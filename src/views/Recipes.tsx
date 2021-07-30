@@ -8,7 +8,7 @@ import { globalSearch } from '../redux/global';
 import { useAppSelector } from '../redux/types';
 
 const StyledWrapper = styled.div`
-  background-color: #f9f7f4;
+  background-color: #fff;
   background-size: 100%;
   width: 100vw;
   height: 100vh;

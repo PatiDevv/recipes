@@ -4,7 +4,7 @@ import { FakeDataItem } from '../../redux/global';
 import { getRoute, routes } from '../../routes';
 
 const StyledWrapper = styled.div`
-  background-color: #ede7de;
+  background-color: #60cf98;
   height: 40%;
   width: 400px;
   border-radius: 30px;

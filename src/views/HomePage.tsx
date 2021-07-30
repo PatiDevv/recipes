@@ -72,7 +72,7 @@ const MainText = styled.div`
 `;
 
 const StyledH1 = styled.h1`
-  font-weight: ${({ theme }) => theme.bold};
+  font-weight: ${({ theme }) => theme.weightFonts.Neuton.bold};
   font-size: 400%;
   line-height: 0.9;
   color: #1c2025;
@@ -83,7 +83,7 @@ const StyledH1 = styled.h1`
 const StyledH2 = styled.h2`
   width: 30%;
   height: fit-content;
-  font-weight: ${({ theme }) => theme.extraLight};
+  font-weight: ${({ theme }) => theme.weightFonts.Neuton.extraLight};
   font-size: 140%;
   line-height: 1.2;
   color: #1c2025;
