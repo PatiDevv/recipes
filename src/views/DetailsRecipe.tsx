@@ -1,6 +1,8 @@
 import { RouteComponentProps } from 'react-router';
-import { NavLink, useHistory } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
+import TabelWithTime from '../components/molecules/TableWithTime';
+import { FakeDataItem } from '../redux/global';
 import { useAppSelector } from '../redux/types';
 import { routes } from '../routes';
 
@@ -77,47 +79,6 @@ const StyledImg = styled.img`
   grid-area: 2 / 2;
 `;
 
-const StyledTable = styled.div`
-  display: grid;
-  grid-column-start: 1;
-  grid-row-start: 3;
-  grid-template-columns: repeat(4, 12.5%) 25% 25%;
-  grid-template-rows: 50% 50%;
-  width: 90%;
-  margin-left: 5%;
-  font-weight: ${({ theme }) => theme.weightFonts.OpenSans.regular};
-  font-family: ${({ theme }) => theme.font.OpenSans};
-  font-size: 20px;
-`;
-
-const H6D = styled.h6`
-  margin: 0;
-  align-self: end;
-  justify-self: start;
-  font-size: 85%;
-  font-weight: ${({ theme }) => theme.weightFonts.OpenSans.regular};
-`;
-
-const H6U = styled.h6`
-  align-self: start;
-  justify-self: start;
-  margin: 0;
-  font-size: 75%;
-  font-weight: ${({ theme }) => theme.weightFonts.Neuton.bold};
-`;
-
-const StyledDivTableD = styled.div`
-  align-self: end;
-  justify-self: center;
-  margin: 0;
-`;
-
-const StyledDivTableU = styled.div`
-  align-self: start;
-  justify-self: center;
-  margin: 0;
-`;
-
 const DetailsRecipe = ({ match: { params } }: RouteComponentProps<IRecipeParams>) => {
   const recipes = useAppSelector((s) => s.Global.recipesData);
 
@@ -131,8 +92,6 @@ const DetailsRecipe = ({ match: { params } }: RouteComponentProps<IRecipeParams>
     );
   }
 
-  const totalTime = itemRecipe.waittime + itemRecipe.cooktime + itemRecipe.preptime;
-
   return (
     <StyledWrapper>
       <StyledHeader>
@@ -141,22 +100,7 @@ const DetailsRecipe = ({ match: { params } }: RouteComponentProps<IRecipeParams>
         </H5>
         <H1>{itemRecipe.name}</H1>
 
-        <StyledTable>
-          <H6D>Total Time</H6D>
-          <H6D>Prep Time</H6D>
-          <H6D>Wait Time</H6D>
-          <H6D>Cook Time</H6D>
-
-          <StyledDivTableD> 3 revievs</StyledDivTableD>
-          <StyledDivTableD>jakies ikony</StyledDivTableD>
-
-          <H6U>{CalculateTime(totalTime)}</H6U>
-          <H6U>{CalculateTime(itemRecipe.preptime)}</H6U>
-          <H6U>{CalculateTime(itemRecipe.waittime)}</H6U>
-          <H6U>{CalculateTime(itemRecipe.cooktime)}</H6U>
-          <StyledDivTableU> gwiazdki</StyledDivTableU>
-          <StyledDivTableU>opisy ikon</StyledDivTableU>
-        </StyledTable>
+        {TabelWithTime(itemRecipe)}
         <StyledImg src={itemRecipe.image} alt="Recipe photo" />
       </StyledHeader>
       <div></div>
@@ -165,7 +109,3 @@ const DetailsRecipe = ({ match: { params } }: RouteComponentProps<IRecipeParams>
 };
 
 export default DetailsRecipe;
-
-function CalculateTime(time: number) {
-  return time < 60 ? time + 'm' : Math.floor(time / 60) + 'h' + ' ' + (time % 60) + 'm';
-}
