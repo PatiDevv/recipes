@@ -18,10 +18,10 @@ const StyledHeader = styled.div`
   background: #1d976c; /* fallback for old browsers */
   background: -webkit-linear-gradient(to left, #93f9b9, #1d976c); /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to left, #93f9b9, #1d976c); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  height: 35vh;
+  height: 30vh;
   display: grid;
   grid-template-columns: 60% 40%;
-  grid-template-rows: 20% 30% 30%;
+  grid-template-rows: 20% 40% 40%;
 `;
 
 const H1 = styled.h1`

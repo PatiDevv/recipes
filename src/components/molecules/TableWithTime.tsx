@@ -1,17 +1,18 @@
 import styled from 'styled-components';
 import { FakeDataItem } from '../../redux/global';
+import { Print, ShareSocial, Star, StarOutline } from 'react-ionicons';
 
 const StyledTable = styled.div`
   display: grid;
   grid-column-start: 1;
   grid-row-start: 3;
-  grid-template-columns: repeat(4, 12.5%) 25% 25%;
+  grid-template-columns: repeat(4, 15%) 1fr 10% 10%;
   grid-template-rows: 50% 50%;
-  width: 90%;
   margin-left: 5%;
   font-weight: ${({ theme }) => theme.weightFonts.OpenSans.regular};
   font-family: ${({ theme }) => theme.font.OpenSans};
   font-size: 20px;
+  width: 93%;
 `;
 
 const H6D = styled.h6`
@@ -30,16 +31,32 @@ const H6U = styled.h6`
   font-weight: ${({ theme }) => theme.weightFonts.Neuton.bold};
 `;
 
-const StyledDivTableD = styled.div`
+const StyledDivTableU = styled.div`
   align-self: end;
   justify-self: center;
   margin: 0;
+  font-size: 80%;
 `;
 
-const StyledDivTableU = styled.div`
+const StyledDivTableD = styled.div`
   align-self: start;
   justify-self: center;
   margin: 0;
+  font-size: 80%;
+`;
+
+const StyledDivTableStarD = styled.div`
+  align-self: start;
+  justify-self: center;
+  margin: 0;
+  font-size: 80%;
+`;
+
+const StyledDivTableStarU = styled.div`
+  align-self: end;
+  justify-self: center;
+  margin: 0;
+  font-size: 80%;
 `;
 
 const TabelWithTime = (itemRecipe: FakeDataItem) => {
@@ -52,15 +69,24 @@ const TabelWithTime = (itemRecipe: FakeDataItem) => {
       <H6D>Wait Time</H6D>
       <H6D>Cook Time</H6D>
 
-      <StyledDivTableD> 3 revievs</StyledDivTableD>
-      <StyledDivTableD>jakies ikony</StyledDivTableD>
+      <StyledDivTableStarU> 105 revievs</StyledDivTableStarU>
+      <StyledDivTableU>
+        <ShareSocial color={'#ffffff'} height="25px" width="25px" />
+      </StyledDivTableU>
+      <StyledDivTableU>
+        <Print color={'#ffffff'} height="25px" width="25px" />
+      </StyledDivTableU>
 
       <H6U>{CalculateTime(totalTime)}</H6U>
       <H6U>{CalculateTime(itemRecipe.preptime)}</H6U>
       <H6U>{CalculateTime(itemRecipe.waittime)}</H6U>
       <H6U>{CalculateTime(itemRecipe.cooktime)}</H6U>
-      <StyledDivTableU> gwiazdki</StyledDivTableU>
-      <StyledDivTableU>opisy ikon</StyledDivTableU>
+      <StyledDivTableStarD>
+        <Star color={'#fff'} height="18px" width="18px" /> <Star color={'#fff'} height="18px" width="18px" /> <Star color={'#fff'} height="18px" width="18px" />{' '}
+        <Star color={'#fff'} height="18px" width="18px" /> <StarOutline color={'#fff'} height="18px" width="18px" />
+      </StyledDivTableStarD>
+      <StyledDivTableD>share</StyledDivTableD>
+      <StyledDivTableD>print</StyledDivTableD>
     </StyledTable>
   );
 };
