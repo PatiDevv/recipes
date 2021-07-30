@@ -2,7 +2,6 @@ import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
 import { globalSearch } from '../../redux/global';
 import { useAppSelector } from '../../redux/types';
-import Button from '../atoms/Button/Button';
 import SearchInput from '../atoms/Input/SearchInput';
 
 const StyedSearchInput = styled(SearchInput)`
@@ -10,23 +9,22 @@ const StyedSearchInput = styled(SearchInput)`
   width: 50%;
 `;
 
-const StyledH2 = styled.h2`
+const H2 = styled.h2`
   margin: 0;
-`;
-
-const StyledButton = styled(Button)`
-  font-size: 70%;
+  font-weight: 400;
 `;
 
 const StyledWrapper = styled.div`
-  background-color: #f9f7f4;
+  background: #1d976c;
+  background: -webkit-linear-gradient(to left, #93f9b9, #1d976c);
+  background: linear-gradient(to right, #93f9b9, #1d976c);
   background-size: 100%;
   width: 100vw;
-
+  height: 100px;
   margin: 0;
 
   display: flex;
-  align-content: flex-start;
+  align-content: center;
   justify-content: space-evenly;
   flex-wrap: wrap;
   align-items: baseline;
@@ -38,11 +36,11 @@ export const Header = () => {
 
   return (
     <StyledWrapper>
-      <StyledH2>Recipes ({recipes.length})</StyledH2>
+      <H2>Recipes ({recipes.length})</H2>
       <StyedSearchInput placeholder="Find Me - Your Perfect Recipe for Today" onChange={(e) => dispatch(globalSearch(e.target.value))}></StyedSearchInput>
 
-      <StyledButton>SORT BY</StyledButton>
-      <StyledButton>FILTER</StyledButton>
+      <H2>Sort By</H2>
+      <H2>Filter</H2>
     </StyledWrapper>
   );
 };
