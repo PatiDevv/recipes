@@ -1,6 +1,7 @@
 import { RouteComponentProps } from 'react-router';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
+import NutritionValue from '../components/molecules/NutritionValue';
 import TabelWithTime from '../components/molecules/TableWithTime';
 import { FakeDataItem } from '../redux/global';
 import { useAppSelector } from '../redux/types';
@@ -11,7 +12,8 @@ interface IRecipeParams {
 }
 
 const StyledWrapper = styled.div`
-  height: 100vh;
+  height: 100%;
+  font-family: ${({ theme }) => theme.font.Neuton};
 `;
 
 const StyledHeader = styled.div`
@@ -22,6 +24,14 @@ const StyledHeader = styled.div`
   display: grid;
   grid-template-columns: 60% 40%;
   grid-template-rows: 20% 40% 40%;
+`;
+
+const StyledBody = styled.div`
+  background-color: #fbf8f9;
+  height: 70vh;
+  display: grid;
+  grid-template-columns: 60% 40%;
+  grid-template-rows: 40% 60%;
 `;
 
 const H1 = styled.h1`
@@ -45,6 +55,7 @@ const H2 = styled.h2`
 `;
 
 const H5 = styled.h5`
+  font-family: ${({ theme }) => theme.font.Neuton};
   font-size: 70%;
   width: 50vw;
   line-height: 0.9;
@@ -103,7 +114,7 @@ const DetailsRecipe = ({ match: { params } }: RouteComponentProps<IRecipeParams>
         {TabelWithTime(itemRecipe)}
         <StyledImg src={itemRecipe.image} alt="Recipe photo" />
       </StyledHeader>
-      <div></div>
+      <StyledBody>{NutritionValue(itemRecipe)}</StyledBody>
     </StyledWrapper>
   );
 };
