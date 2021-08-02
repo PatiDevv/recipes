@@ -11,7 +11,7 @@ const GlobalSyle = createGlobalStyle`
 body{
     font-size: 20px;
     color: #fff;
-    font-family: 'Neuton', serif;
+    font-family: 'Open Sans', serif;
     margin: 0;
     padding: 0;
 

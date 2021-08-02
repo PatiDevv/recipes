@@ -8,6 +8,7 @@ import { globalSearch } from '../redux/global';
 import { useAppSelector } from '../redux/types';
 
 const StyledWrapper = styled.div`
+  font-family: ${({ theme }) => theme.font.Neuton};
   background-color: #fff;
   background-size: 100%;
   width: 100vw;

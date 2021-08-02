@@ -65,6 +65,7 @@ const StyledWrap = styled.div`
 `;
 
 const MainText = styled.div`
+  font-family: ${({ theme }) => theme.font.Neuton};
   display: flex;
   flex-direction: column;
   justify-content: center;
