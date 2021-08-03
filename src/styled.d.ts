@@ -2,6 +2,9 @@ import 'styled-components';
 
 declare module 'styled-components' {
   export interface DefaultTheme {
+    colors: {
+      lightGreen: string;
+    };
     weightFonts: {
       OpenSans: {
         light: number;

@@ -1,6 +1,10 @@
 import { DefaultTheme } from 'styled-components';
 
 export const theme: DefaultTheme = {
+  colors: {
+    lightGreen: '#60cf98',
+  },
+
   weightFonts: {
     OpenSans: {
       light: 300,

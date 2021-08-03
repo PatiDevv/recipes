@@ -1,6 +1,7 @@
 import { RouteComponentProps } from 'react-router';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
+import Ingredients from '../components/molecules/Ingredients';
 import NutritionValue from '../components/molecules/NutritionValue';
 import TabelWithTime from '../components/molecules/TableWithTime';
 import { FakeDataItem } from '../redux/global';
@@ -114,7 +115,9 @@ const DetailsRecipe = ({ match: { params } }: RouteComponentProps<IRecipeParams>
         {TabelWithTime(itemRecipe)}
         <StyledImg src={itemRecipe.image} alt="Recipe photo" />
       </StyledHeader>
-      <StyledBody>{NutritionValue(itemRecipe)}</StyledBody>
+      <StyledBody>
+        {NutritionValue(itemRecipe)} {Ingredients(itemRecipe)}
+      </StyledBody>
     </StyledWrapper>
   );
 };
