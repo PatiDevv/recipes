@@ -1,9 +1,8 @@
 import { useState } from 'react';
-import { AddCircle, CheckmarkCircle, RemoveCircle } from 'react-ionicons';
+import { CheckmarkCircle } from 'react-ionicons';
 import styled from 'styled-components';
 import { FakeDataItem } from '../../redux/global';
 import Counter from '../atoms/Counter';
-import NutritionValueSingle from '../atoms/NutritionValueSingle';
 
 const H1 = styled.h1`
   color: #000;
@@ -12,10 +11,6 @@ const H1 = styled.h1`
   height: fit-content;
 `;
 
-const H2 = styled.h2`
-  color: #000;
-  margin: 0;
-`;
 const Wrap = styled.div`
   width: 90%;
   height: fit-content;
@@ -41,6 +36,7 @@ const Ingridient = styled.div`
 
 const Ingredients = (itemRecipe: FakeDataItem) => {
   const [value, setValue] = useState(1);
+
   return (
     <Wrap>
       <H1>Ingredients</H1>
@@ -48,7 +44,9 @@ const Ingredients = (itemRecipe: FakeDataItem) => {
       {itemRecipe.ingredients.map((item) => (
         <WrapIngredient>
           <CheckmarkCircle color={'#60cf98'} height="25px" width="25px" style={{ verticalAlign: 'middle' }} />
-          <Ingridient>{item}</Ingridient>
+          <Ingridient>
+            {parseFloat(item) >= 0 ? Math.round(parseFloat(item) * value * 10) / 10 : null} {item.split(' ').slice(1).join(' ')}
+          </Ingridient>
         </WrapIngredient>
       ))}
     </Wrap>

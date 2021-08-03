@@ -1,7 +1,7 @@
 import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import { FakeDataItem } from '../../redux/global';
-import { getRoute, routes } from '../../routes';
+import { getRoute } from '../../routes';
 
 const StyledWrapper = styled.div`
   background-color: #60cf98;

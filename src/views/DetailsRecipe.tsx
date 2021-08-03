@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import Ingredients from '../components/molecules/Ingredients';
 import NutritionValue from '../components/molecules/NutritionValue';
 import TabelWithTime from '../components/molecules/TableWithTime';
-import { FakeDataItem } from '../redux/global';
 import { useAppSelector } from '../redux/types';
 import { routes } from '../routes';
 
