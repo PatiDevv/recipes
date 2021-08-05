@@ -9,18 +9,18 @@ const H2 = styled.h5`
   font-weight: 400;
 `;
 const Wrap = styled.div`
-  width: 50%;
+  width: 200px;
   height: 35px;
   display: flex;
   grid-column-start: 2;
   justify-content: space-between;
   align-items: center;
-  margin: 5% 25% 5% 25%;
+  margin: 0% 8% 0 0%;
 `;
 
 interface CounterProps {
   value: number;
-  setValue: React.Dispatch<React.SetStateAction<number>> //setValue(val: number): void; // setValue: (val: number) => void;
+  setValue: React.Dispatch<React.SetStateAction<number>>; //setValue(val: number): void; // setValue: (val: number) => void;
 }
 
 const Counter = ({ setValue, value }: CounterProps) => {

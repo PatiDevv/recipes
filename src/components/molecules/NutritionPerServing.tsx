@@ -22,7 +22,7 @@ const WrapNutritionValues = styled.div`
   display: flex;
 `;
 
-const NutritionValue = (itemRecipe: FakeDataItem) => {
+const NutritionPerServing = (itemRecipe: FakeDataItem) => {
   return (
     <Wrap>
       <H2>Nutrition per serving</H2>
@@ -37,4 +37,4 @@ const NutritionValue = (itemRecipe: FakeDataItem) => {
   );
 };
 
-export default NutritionValue;
+export default NutritionPerServing;

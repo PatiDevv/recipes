@@ -7,23 +7,21 @@ import Counter from '../atoms/Counter';
 
 const H1 = styled.h1`
   color: #000;
-  margin: 0 0 5% 0;
-  grid-column-start: 1;
+  margin: 0 0 0 2%;
+
   height: fit-content;
 `;
 
 const Wrap = styled.div`
-  width: 90%;
+  width: 50%;
   height: fit-content;
   margin-top: 5%;
-  margin-left: 8%;
-  display: grid;
-  grid-template-columns: 50% 50%;
+  margin-left: 7%;
 `;
 
 const WrapIngredient = styled.div`
   color: black;
-  grid-column-start: 1;
+  width: 80%;
   display: flex;
   align-items: center;
   margin: 0;
@@ -35,13 +33,24 @@ const Ingridient = styled.div`
   margin-left: 10px;
 `;
 
+const HeaderIngredients = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 0 5% 0;
+`;
+
 const Ingredients = (itemRecipe: FakeDataItem) => {
   const [value, setValue] = useState(1);
 
   return (
     <Wrap>
-      <H1>Ingredients</H1>
-      <Counter {...{ value, setValue }} />
+      <HeaderIngredients>
+        <H1>Ingredients</H1>
+        <Counter {...{ value, setValue }} />
+      </HeaderIngredients>
+
       {itemRecipe.ingredients.map((item) => (
         <WrapIngredient>
           <CheckmarkCircle color={'#60cf98'} height="25px" width="25px" style={{ verticalAlign: 'middle' }} />

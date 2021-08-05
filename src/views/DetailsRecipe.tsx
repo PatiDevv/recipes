@@ -1,8 +1,9 @@
 import { RouteComponentProps } from 'react-router';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
+import HowToMakeIt from '../components/molecules/HowToMakeIt';
 import Ingredients from '../components/molecules/Ingredients';
-import NutritionValue from '../components/molecules/NutritionValue';
+import NutritionPerServing from '../components/molecules/NutritionPerServing';
 import TabelWithTime from '../components/molecules/TableWithTime';
 import { useAppSelector } from '../redux/types';
 import { routes } from '../routes';
@@ -29,9 +30,8 @@ const StyledHeader = styled.div`
 const StyledBody = styled.div`
   background-color: #fbf8f9;
   height: 70vh;
-  display: grid;
-  grid-template-columns: 60% 40%;
-  grid-template-rows: 40% 60%;
+  display: flex;
+  flex-direction: column;
 `;
 
 const H1 = styled.h1`
@@ -115,7 +115,9 @@ const DetailsRecipe = ({ match: { params } }: RouteComponentProps<IRecipeParams>
         <StyledImg src={itemRecipe.image} alt="Recipe photo" />
       </StyledHeader>
       <StyledBody>
-        {NutritionValue(itemRecipe)} {Ingredients(itemRecipe)}
+        {/* <NutritionPerServing {...itemRecipe} /> */}
+        <Ingredients {...itemRecipe} />
+        <HowToMakeIt itemRecipe={itemRecipe}></HowToMakeIt>
       </StyledBody>
     </StyledWrapper>
   );
