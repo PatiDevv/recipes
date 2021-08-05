@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { CheckmarkCircle } from 'react-ionicons';
 import styled from 'styled-components';
+import stringContainsNumber from '../../helpers/stringContainsNumber';
 import { FakeDataItem } from '../../redux/global';
 import Counter from '../atoms/Counter';
 
@@ -45,7 +46,7 @@ const Ingredients = (itemRecipe: FakeDataItem) => {
         <WrapIngredient>
           <CheckmarkCircle color={'#60cf98'} height="25px" width="25px" style={{ verticalAlign: 'middle' }} />
           <Ingridient>
-            {parseFloat(item) >= 0 ? Math.round(parseFloat(item) * value * 10) / 10 : null} {item.split(' ').slice(1).join(' ')}
+            {parseFloat(item) >= 0 ? Math.round(parseFloat(item) * value * 10) / 10 : null} {stringContainsNumber(item) ? item.split(' ').slice(1).join(' ') : item}
           </Ingridient>
         </WrapIngredient>
       ))}
