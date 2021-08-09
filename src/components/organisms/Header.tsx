@@ -28,6 +28,7 @@ const StyledWrapper = styled.div`
   justify-content: space-evenly;
   flex-wrap: wrap;
   align-items: baseline;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
 `;
 
 export const Header = () => {

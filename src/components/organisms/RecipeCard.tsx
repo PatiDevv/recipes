@@ -2,6 +2,7 @@ import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import { FakeDataItem } from '../../redux/global';
 import { getRoute } from '../../routes';
+import ImageAnimatedSplitView from '../atoms/ImageAnimatedSplitView';
 
 const StyledWrapper = styled.div`
   background-color: #60cf98;
@@ -12,6 +13,7 @@ const StyledWrapper = styled.div`
   font-weight: 400;
   margin: 1%;
   cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
 `;
 
 const ImageWrapper = styled.img`
