@@ -8,24 +8,25 @@ interface NutritionValueInterface {
 const WrapNutritionValueSingle = styled.div`
   font-family: ${({ theme }) => theme.font.OpenSans};
   font-size: 80%;
-  color: black;
-  background-color: #f1eceb;
-  width: 100px;
-  height: 70px;
-  margin-right: 10px;
+  color: white;
+  background-color: #60cf98;
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
+
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
+
+  width: 17%;
+  height: 60px;
 `;
 const NameNutritionValue = styled.div`
-  font-weight: ${({ theme }) => theme.weightFonts.OpenSans.light};
+  font-weight: 400;
+  font-size: 95%;
 `;
 const ValueNutritionValue = styled.div`
-  background-color: white;
-  width: 90%;
-  font-weight: 400;
-  text-align: center;
+  font-weight: 600;
 `;
 
 const NutritionValueSingle = ({ name, value, unit }: NutritionValueInterface) => {

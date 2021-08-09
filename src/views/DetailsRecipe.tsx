@@ -83,11 +83,16 @@ const StyledViewNotFound = styled.div`
   grid-template-rows: 1fr 1fr 1fr;
 `;
 
-const StyledImg = styled.img`
+const StyledDivImg = styled.div<{ src: string }>`
   width: 80%;
   height: 500px;
-  object-fit: cover;
+  background-size: cover;
   grid-area: 2 / 2;
+  background-image: url(${(props) => props.src});
+  border-radius: 10px;
+  position: relative;
+
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
 `;
 
 const DetailsRecipe = ({ match: { params } }: RouteComponentProps<IRecipeParams>) => {
@@ -112,10 +117,12 @@ const DetailsRecipe = ({ match: { params } }: RouteComponentProps<IRecipeParams>
         <H1>{itemRecipe.name}</H1>
 
         {TabelWithTime(itemRecipe)}
-        <StyledImg src={itemRecipe.image} alt="Recipe photo" />
+
+        <StyledDivImg src={itemRecipe.image}>
+          <NutritionPerServing {...itemRecipe} />
+        </StyledDivImg>
       </StyledHeader>
       <StyledBody>
-        {/* <NutritionPerServing {...itemRecipe} /> */}
         <Ingredients {...itemRecipe} />
         <HowToMakeIt itemRecipe={itemRecipe}></HowToMakeIt>
       </StyledBody>

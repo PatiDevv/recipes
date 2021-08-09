@@ -5,27 +5,20 @@ import NutritionValueSingle from '../atoms/NutritionValueSingle';
 const Wrap = styled.div`
   grid-row-start: 2;
   grid-column-start: 2;
-  width: 80%;
-`;
-
-const H2 = styled.h2`
-  color: #000;
-  font-size: 135%;
-  font-family: ${({ theme }) => theme.font.Neuton};
-  font-weight: ${({ theme }) => theme.weightFonts.Neuton.bold};
-  margin: 0;
-  padding: 5% 0 5% 0;
-  text-align: center;
+  width: 95%;
+  position: absolute;
+  bottom: 3%;
+  left: 2.5%;
 `;
 
 const WrapNutritionValues = styled.div`
   display: flex;
+  justify-content: space-around;
 `;
 
 const NutritionPerServing = (itemRecipe: FakeDataItem) => {
   return (
     <Wrap>
-      <H2>Nutrition per serving</H2>
       <WrapNutritionValues>
         <NutritionValueSingle name="Calories" value={itemRecipe.calories} unit={'kcal'}></NutritionValueSingle>
         <NutritionValueSingle name="Protein" value={itemRecipe.protein} unit={'g'}></NutritionValueSingle>
