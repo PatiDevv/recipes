@@ -1,5 +1,11 @@
+import styled from 'styled-components';
+
+const H1 = styled.h1`
+  color: #000;
+`;
+
 const NotFound = () => {
-  return <h1>Strony nie znaleziono</h1>;
+  return <H1>Strony nie znaleziono</H1>;
 };
 
 export default NotFound;
