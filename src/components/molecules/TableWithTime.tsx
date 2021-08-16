@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { FakeDataItem } from '../../redux/global';
 import { Print, ShareSocial, Star, StarOutline } from 'react-ionicons';
+import GetRandomStar from '../atoms/GetRandomStar';
 
 const StyledTable = styled.div`
   display: grid;
@@ -69,7 +70,7 @@ const TabelWithTime = (itemRecipe: FakeDataItem) => {
       <H6D>Wait Time</H6D>
       <H6D>Cook Time</H6D>
 
-      <StyledDivTableStarU> 105 revievs</StyledDivTableStarU>
+      <StyledDivTableStarU> {GetRandomNumber()} revievs</StyledDivTableStarU>
       <StyledDivTableU>
         <ShareSocial color={'#ffffff'} height="25px" width="25px" />
       </StyledDivTableU>
@@ -82,8 +83,7 @@ const TabelWithTime = (itemRecipe: FakeDataItem) => {
       <H6U>{CalculateTime(itemRecipe.waittime)}</H6U>
       <H6U>{CalculateTime(itemRecipe.cooktime)}</H6U>
       <StyledDivTableStarD>
-        <Star color={'#fff'} height="18px" width="18px" /> <Star color={'#fff'} height="18px" width="18px" /> <Star color={'#fff'} height="18px" width="18px" />{' '}
-        <Star color={'#fff'} height="18px" width="18px" /> <StarOutline color={'#fff'} height="18px" width="18px" />
+        <GetRandomStar></GetRandomStar>
       </StyledDivTableStarD>
       <StyledDivTableD>share</StyledDivTableD>
       <StyledDivTableD>print</StyledDivTableD>
@@ -93,6 +93,10 @@ const TabelWithTime = (itemRecipe: FakeDataItem) => {
 
 function CalculateTime(time: number) {
   return time < 60 ? time + 'm' : Math.floor(time / 60) + 'h' + ' ' + (time % 60) + 'm';
+}
+
+function GetRandomNumber() {
+  return Math.floor(Math.random() * (500 - 0)) + 0;
 }
 
 export default TabelWithTime;
