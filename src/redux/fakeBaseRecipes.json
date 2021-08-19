@@ -1312,13 +1312,8 @@
     "fiber": 29,
     "sugar": 53,
     "protein": 57,
-    "instructions": "Bring a large pot of water to a rolling boil.\r\n\r\nMeanwhile, make asparagus pesto.\r\n\r\nSalt the pasta water well and cook the pasta until just tender. Drain and toss immediately with 1 cup of the asparagus pesto (0.25 cup per serving), stirring in more afterward depending on how heavily coated you like your pasta. Serve sprinkled with the remaining toasted pine nuts, a dusting of Parmesan, and a quick drizzle of extra-virgin olive oil.",
-    "ingredients": [
-      "4 serving [asparagus pesto](http://www.xanthir.com/recipes/showrecipe.php?id=id436)",
-      "0.25 cup toasted pine nuts\r",
-      "4 tbsp parmesan, grated\r",
-      "12 oz dried pasta"
-    ],
+    "instructions": "Bring a large pot of water to a rolling boil.\rMeanwhile, make asparagus pesto.\rSalt the pasta water well and cook the pasta until just tender. Drain and toss immediately with 1 cup of the asparagus pesto (0.25 cup per serving), stirring in more afterward depending on how heavily coated you like your pasta. Serve sprinkled with the remaining toasted pine nuts, a dusting of Parmesan, and a quick drizzle of extra-virgin olive oil.",
+    "ingredients": ["0.25 cup toasted pine nuts\r", "4 tbsp parmesan, grated\r", "12 oz dried pasta"],
     "tags": ["vegetarian", "pasta", "main"],
     "image": "https://images.pexels.com/photos/3771814/pexels-photo-3771814.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
   },

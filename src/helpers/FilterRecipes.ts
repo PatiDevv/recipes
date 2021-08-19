@@ -10,6 +10,4 @@ export const cardItemContainsSearchTerm = (val: FakeDataItem, search: string) =>
   return val.name.toLowerCase().includes(formatedValue) || val.ingredients.find((item) => item.toLowerCase().includes(formatedValue));
 };
 
-export const filterRecipes = (recipes: FakeDataItem[], search: string) => {
-  return recipes.filter((val) => cardItemContainsSearchTerm(val, search));
-};
+

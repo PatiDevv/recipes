@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
 import Header from '../components/organisms/Header';
 import RecipeCard from '../components/organisms/RecipeCard';
-import { filterRecipes } from '../helpers/FilterRecipes';
+import { cardItemContainsSearchTerm } from '../helpers/FilterRecipes';
 import { globalSearch } from '../redux/global';
 import { useAppSelector } from '../redux/types';
 
@@ -37,11 +37,13 @@ const Recipes = () => {
 
   return (
     <StyledWrapper>
-      <Header></Header>
+      <Header/>
       <RecipeCardWrapper>
-        {filterRecipes(recipesData, search).map((item, i) => (
-          <RecipeCard key={i} {...item} time={item.cooktime + item.waittime + item.preptime}></RecipeCard>
-        ))}
+        {recipesData
+          .filter((val) => cardItemContainsSearchTerm(val, search))
+          .map((item, i) => (
+            <RecipeCard key={i} {...item} time={item.cooktime + item.waittime + item.preptime}></RecipeCard>
+          ))}
       </RecipeCardWrapper>
     </StyledWrapper>
   );
