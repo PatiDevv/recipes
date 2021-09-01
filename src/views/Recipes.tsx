@@ -13,7 +13,7 @@ const StyledWrapper = styled.div`
   background-size: 100%;
   width: 100vw;
   height: 100vh;
-
+  color: #fff;
   margin: 0;
 `;
 
@@ -37,7 +37,7 @@ const Recipes = () => {
 
   return (
     <StyledWrapper>
-      <Header/>
+      <Header />
       <RecipeCardWrapper>
         {recipesData
           .filter((val) => cardItemContainsSearchTerm(val, search))

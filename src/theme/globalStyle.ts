@@ -10,12 +10,10 @@ const GlobalSyle = createGlobalStyle`
 
 body{
     font-size: 20px;
-    color: #fff;
+    color: #000;
     font-family: 'Open Sans', serif;
     margin: 0;
     padding: 0;
-   
-
 }
 `;
 

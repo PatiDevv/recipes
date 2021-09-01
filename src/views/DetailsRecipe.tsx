@@ -15,6 +15,7 @@ interface IRecipeParams {
 const StyledWrapper = styled.div`
   height: 100%;
   font-family: ${({ theme }) => theme.font.Neuton};
+  color: #fff;
 `;
 
 const StyledHeader = styled.div`
