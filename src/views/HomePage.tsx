@@ -95,10 +95,15 @@ const StyledH2 = styled.h2`
 const StyledLink = styled(Link)`
   text-decoration: none;
   color: #fff;
-  padding: 20px 40px;
+  padding: 10px 20px;
   text-align: center;
   text-transform: uppercase;
   font-size: 80%;
+  width: max-content;
+`;
+
+const WrapButton = styled.div`
+  display: flex;
 `;
 
 const HomePage = () => {
@@ -113,9 +118,14 @@ const HomePage = () => {
           Eat delicious and healthy every day. In our database you will find <strong>10,000</strong> recipes. Ingredients, proportions, shopping list on one website.{' '}
           <strong>We are there for you.</strong>
         </StyledH2>
-        <Button>
-          <StyledLink to={`/recipes`}> Explore recipes</StyledLink>
-        </Button>
+        <WrapButton>
+          <Button>
+            <StyledLink to={`/recipes`}> Explore recipes</StyledLink>
+          </Button>
+          <Button>
+            <StyledLink to={`/menu`}> Give me menu</StyledLink>
+          </Button>
+        </WrapButton>
       </MainText>
     </StyledWrap>
   );
