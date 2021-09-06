@@ -1,7 +1,8 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import styled from 'styled-components';
 import Button from '../components/atoms/Button/Button';
 import apple from '../images/apple.png';
+import CardUseGesture from '../animations/CardUseGesture';
 
 const Wrap = styled.div`
   background: #1d976c;
@@ -28,6 +29,8 @@ const FormWrap = styled.div`
 const Image = styled.img`
   height: 70%;
   margin: 4%;
+  pointer-events: none;
+  cursor: pointer;
 `;
 
 const H2 = styled.h2`
@@ -55,6 +58,7 @@ const ColumnIWrap = styled.div`
 
 const DivButton = styled.div`
   display: flex;
+  justify-content: center;
 `;
 
 const EmptyDiv = styled.div`
@@ -109,7 +113,8 @@ const Menu = () => {
             {currentPageIndex < pages.length - 1 && <Buttonn onClick={() => setCurrentPageIndex(currentPageIndex + 1)}>next</Buttonn>}
           </DivButton>
         </ColumnIWrap>
-        <Image src={apple} alt="Apple" />
+
+        <CardUseGesture image={ <Image src={apple} alt="Apple"/>}></CardUseGesture>
       </FormWrap>
     </Wrap>
   );
