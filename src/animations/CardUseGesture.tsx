@@ -1,14 +1,6 @@
 import { useGesture } from 'react-use-gesture';
 import { animated, to, useSpring } from 'react-spring';
 import React, { useRef, useState } from 'react';
-import styled from 'styled-components';
-
-const Image = styled.img`
-  height: 70%;
-  margin: 4%;
-  pointer-events: none;
-  cursor: pointer;
-`;
 
 const calcX = (y: number, ly: number) => -(y - ly - window.innerHeight / 2) / 20;
 const calcY = (x: number, lx: number) => (x - lx - window.innerWidth / 2) / 20;
