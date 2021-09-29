@@ -97,7 +97,7 @@ const pages: OnboardingData[] = [
   },
 ];
 
-const Menu = () => {
+const Onboarding = () => {
   const [currentPageIndex, setCurrentPageIndex] = useState(0);
 
   const currentPage = pages[currentPageIndex];
@@ -114,10 +114,10 @@ const Menu = () => {
           </DivButton>
         </ColumnIWrap>
 
-        <CardUseGesture image={ <Image src={apple} alt="Apple"/>}></CardUseGesture>
+        <CardUseGesture image={<Image src={apple} alt="Apple" />}></CardUseGesture>
       </FormWrap>
     </Wrap>
   );
 };
 
-export default Menu;
+export default Onboarding;

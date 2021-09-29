@@ -6,7 +6,7 @@ import NotFound from './NotFound';
 import DetailsRecipe from './DetailsRecipe';
 import { Provider } from 'react-redux';
 import store from '../redux';
-import Menu from './Menu';
+import Onboarding from './Onboarding';
 
 const Root = () => {
   return (
@@ -16,7 +16,7 @@ const Root = () => {
           <Route exact path={routes.home} component={HomePage} />
           <Route exact path={routes.recipes} component={Recipes} />
           <Route exact path={routes.recipe} component={DetailsRecipe} />
-          <Route exact path={routes.menu} component={Menu} />
+          <Route exact path={routes.onboarding} component={Onboarding} />
           <Route path={routes.notfound} component={NotFound} />
           <Route path={'*'} render={() => <Redirect to={routes.notfound} />} />
         </Switch>

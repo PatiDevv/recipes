@@ -3,12 +3,12 @@ export const routes = {
   recipes: '/recipes',
   recipe: '/recipes/:id',
   notfound: '/not-found',
-  menu: '/menu',
+  onboarding: '/onboarding',
 };
 
 export const getRoute = {
   home: routes.home,
   recipes: routes.recipes,
   recipe: (id: string) => `${routes.recipes}/${id}`,
-  menu: routes.menu,
+  onboarding: routes.onboarding,
 };
