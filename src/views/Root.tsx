@@ -6,7 +6,7 @@ import NotFound from './NotFound';
 import DetailsRecipe from './DetailsRecipe';
 import { Provider } from 'react-redux';
 import store from '../redux';
-import Onboarding from './Onboarding';
+import Onboarding from './onboarding/Onboarding';
 
 const Root = () => {
   return (
