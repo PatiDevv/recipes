@@ -14,6 +14,7 @@ const Wrap = styled.div`
   align-items: center;
 `;
 
+
 const FormWrap = styled.div`
   height: 55%;
   width: 80%;
