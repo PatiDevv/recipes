@@ -1,6 +1,6 @@
 export const routes = {
   home: '/',
-  all: '/all',
+  recipes: '/all',
   recipe: '/all/:id',
   notfound: '/not-found',
   onboarding: '/onboarding',
@@ -8,7 +8,7 @@ export const routes = {
 
 export const getRoute = {
   home: routes.home,
-  recipes: routes.all,
-  recipe: (id: string) => `${routes.all}/${id}`,
+  recipes: routes.recipes,
+  recipe: (id: string) => `${routes.recipes}/${id}`,
   onboarding: routes.onboarding,
 };

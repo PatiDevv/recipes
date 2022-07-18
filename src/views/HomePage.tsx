@@ -120,7 +120,7 @@ const HomePage = () => {
         </StyledH2>
         <WrapButton>
           <Button>
-            <StyledLink to={`/recipes`}> Explore recipes</StyledLink>
+            <StyledLink to={`/all`}> Explore recipes</StyledLink>
           </Button>
           <Button>
             <StyledLink to={`/onboarding`}> Give me menu</StyledLink>
