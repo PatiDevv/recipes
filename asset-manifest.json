@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.js": "/Recipes/static/js/main.e1b64be3.chunk.js",
-    "main.js.map": "/Recipes/static/js/main.e1b64be3.chunk.js.map",
+    "main.js": "/Recipes/static/js/main.297b075f.chunk.js",
+    "main.js.map": "/Recipes/static/js/main.297b075f.chunk.js.map",
     "runtime-main.js": "/Recipes/static/js/runtime-main.afa8e8e4.js",
     "runtime-main.js.map": "/Recipes/static/js/runtime-main.afa8e8e4.js.map",
-    "static/js/2.edcd7f3d.chunk.js": "/Recipes/static/js/2.edcd7f3d.chunk.js",
-    "static/js/2.edcd7f3d.chunk.js.map": "/Recipes/static/js/2.edcd7f3d.chunk.js.map",
+    "static/js/2.34aba02d.chunk.js": "/Recipes/static/js/2.34aba02d.chunk.js",
+    "static/js/2.34aba02d.chunk.js.map": "/Recipes/static/js/2.34aba02d.chunk.js.map",
     "index.html": "/Recipes/index.html",
-    "static/js/2.edcd7f3d.chunk.js.LICENSE.txt": "/Recipes/static/js/2.edcd7f3d.chunk.js.LICENSE.txt",
+    "static/js/2.34aba02d.chunk.js.LICENSE.txt": "/Recipes/static/js/2.34aba02d.chunk.js.LICENSE.txt",
     "static/media/apple.2336b340.png": "/Recipes/static/media/apple.2336b340.png",
     "static/media/background.cd1d868b.jpg": "/Recipes/static/media/background.cd1d868b.jpg",
     "static/media/magnifier.c8fb929d.svg": "/Recipes/static/media/magnifier.c8fb929d.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.afa8e8e4.js",
-    "static/js/2.edcd7f3d.chunk.js",
-    "static/js/main.e1b64be3.chunk.js"
+    "static/js/2.34aba02d.chunk.js",
+    "static/js/main.297b075f.chunk.js"
   ]
 }
