@@ -2,45 +2,12 @@ import { useState } from 'react';
 import styled from 'styled-components';
 import CardUseGesture from '../../animations/CardUseGesture';
 import apple from '../../images/apple.png';
+import { Summary } from './components/Summary';
 import OnboardingWrapper from './OnboardingWrapper';
 
-const Wrap = styled.div`
-  background: #1d976c;
-  background: -webkit-linear-gradient(to left, #93f9b9, #1d976c);
-  background: linear-gradient(to right, #93f9b9, #1d976c);
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
-
-const FormWrap = styled.div`
-  height: 55%;
-  width: 80%;
-  background-color: #fff;
-
-  border-radius: 40px;
-  box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
-  display: flex;
-  align-items: center;
-`;
-
-const Image = styled.img`
-  pointer-events: none;
-`;
-
-const Input = styled.input`
-  border: none;
-  border-bottom: solid 2px ${({ theme }) => theme.colors.lightGreen};
-  height: 30px;
-  outline-style: none;
-  font-size: medium;
-  text-align: center;
-`;
-
-const Onboarding = () => {
+export const Onboarding = () => {
   const [currentPageIndex, setCurrentPageIndex] = useState(0);
+  const [age, setAge] = useState('');
   const [weight, setWeight] = useState('');
   const [height, setHeight] = useState('');
 
@@ -55,24 +22,43 @@ const Onboarding = () => {
               return (
                 <OnboardingWrapper
                   isBackButtonDisabled
-                  title="Witamy Cię w kreatorze jadłospisu, zanim go dosatniesz musimy dowiedzieć się o Tobie kilku rzeczy"
+                  title="Witamy Cię"
+                  subtitle="Zanim stworzymy, spersonalizowany jadłospis tylko dla Ciebie, musimy zadać Ci kilka pytań."
                   {...defaultProps}
                 />
               );
             case 1:
               return (
-                <OnboardingWrapper title="Podaj nam swój wiek" {...defaultProps}>
-                  <Input value={weight} onChange={({ target: { value } }) => setWeight(value)} />
+                <OnboardingWrapper subtitle="Podaj nam swój wiek" {...defaultProps}>
+                  <Input value={age} onChange={({ target: { value } }) => setAge(value)} />
                 </OnboardingWrapper>
               );
             case 2:
               return (
-                <OnboardingWrapper nextTitle="Finish" title="Podaj nam swoją wagę" {...defaultProps}>
-                  <Input value={height} onChange={({ target: { value } }) => setHeight(value)} />
+                <OnboardingWrapper  subtitle="Podaj nam swoją wagę" {...defaultProps}>
+                  <Input value={weight} onChange={({ target: { value } }) => setWeight(value)} />
                 </OnboardingWrapper>
               );
+              case 3:
+                return (
+                  <OnboardingWrapper nextTitle="Finish" subtitle="Podaj nam swój wzrost" {...defaultProps}>
+                    <Input value={height} onChange={({ target: { value } }) => setHeight(value)} />
+                  </OnboardingWrapper>
+                );
             default:
-              return null;
+              return(
+               <WrapSummary>
+
+                <div style={{display: "flex", justifyContent:"center", fontSize:"2rem"}}>Podsumowanie</div>
+                
+                <div style={{marginTop: "2rem"}}>
+                <Summary definition='Twój wiek:' value={age}/>
+                <Summary definition='Twoja waga:' value={weight}/>
+                <Summary definition='Twój wzrost:' value={height}/>
+                </div>
+                
+               </WrapSummary>
+              );
           }
         })()}
 
@@ -82,7 +68,7 @@ const Onboarding = () => {
   );
 };
 
-export default Onboarding;
+
 // const pages: OnboardingData[] = [
 //   {
 //     description: 'Witamy Cię w kreatorze jadłospisu, zanim go dosatniesz musimy dowiedzieć się o Tobie kilku rzeczy',
@@ -109,3 +95,48 @@ export default Onboarding;
 //     description: 'Twoja proponowana ilość kalorii + Twój cel zosatnie osiągnięty data',
 //   },
 // ];
+
+
+
+const WrapSummary = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  padding: 7% 0;
+`;
+
+const Wrap = styled.div`
+  background: #1d976c;
+  background: -webkit-linear-gradient(to left, #93f9b9, #1d976c);
+  background: linear-gradient(to right, #93f9b9, #1d976c);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const FormWrap = styled.div`
+  height: 55%;
+  width: 80%;
+  background-color: #fff;
+
+  border-radius: 40px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
+  display: flex;
+  align-items: center;
+`;
+
+const Image = styled.img`
+  pointer-events: none;
+`;
+
+const Input = styled.input`
+  border: none;
+  border-bottom: solid 2px ${({ theme }) => theme.colors.lightGreen};
+  height: 30px;
+  outline-style: none;
+  font-size: medium;
+  text-align: center;
+`;
+

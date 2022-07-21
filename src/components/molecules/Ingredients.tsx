@@ -3,7 +3,8 @@ import { CheckmarkCircle } from 'react-ionicons';
 import styled from 'styled-components';
 import stringContainsNumber from '../../helpers/stringContainsNumber';
 import { FakeDataItem } from '../../redux/global';
-import Counter from '../atoms/Counter';
+import { Counter } from '../atoms/Counter';
+
 
 const H1 = styled.h1`
   color: #000;

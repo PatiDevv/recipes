@@ -36,7 +36,7 @@ const StyledTable = styled.div`
 const Header = styled.header`
   height: 15%;
   width: 100%;
-  font-size: 20px;
+  font-size: 17px;
   font-weight: 600;
   text-align: center;
   padding: 13px 0 0 0;
@@ -51,7 +51,7 @@ const H3Button = styled.h3`
   margin: 0;
   padding: 5% 0 0 0;
   margin: 5% 0 0 0;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 400;
 `;
 
@@ -61,7 +61,7 @@ const H3Top = styled.h3`
   margin: 0;
   padding: 0 0 5% 0;
   margin: 0 0 5% 0;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 400;
 `;
 
@@ -72,7 +72,7 @@ const Line = styled.hr`
   border-radius: 100%;
   background-color: #fff;
   height: 1px;
-  margin-top: 5px;
+  margin-top: 12px;
 `;
 
 const ImageWrapper = styled.img`

@@ -18,6 +18,7 @@ const Button = styled.button`
   font-family: ${({ theme }) => theme.font.OpenSans}!important;
   display: flex;
   justify-content: center;
+  cursor: pointer;
 `;
 
 export default Button;

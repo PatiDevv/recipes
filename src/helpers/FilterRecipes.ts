@@ -3,7 +3,7 @@ import { FakeDataItem } from "../redux/global";
 export const cardItemContainsSearchTerm = (val: FakeDataItem, search: string) => {
   const formatedValue = search.trim().toLowerCase();
 
-  if (formatedValue == "") {
+  if (formatedValue === "") {
     return true;
   }
 

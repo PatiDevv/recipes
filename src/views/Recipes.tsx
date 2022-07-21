@@ -8,7 +8,8 @@ import { globalSearch } from '../redux/global';
 import { useAppSelector } from '../redux/types';
 
 const StyledWrapper = styled.div`
-  font-family: ${({ theme }) => theme.font.Neuton};
+  font-family: ${({ theme }) => theme.font.OpenSans};
+ 
   background-color: #fff;
   background-size: 100%;
   width: 100vw;
@@ -25,15 +26,13 @@ const RecipeCardWrapper = styled.div`
 `;
 
 const Recipes = () => {
-  // const recipes = useAppSelector((s) => s.Global.recipesData);
-  // const search = useAppSelector((s) => s.Global.search);
   const { recipesData, search } = useAppSelector((s) => s.Global);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(globalSearch(''));
-  }, []);
+  }, [dispatch]);
 
   return (
     <StyledWrapper>

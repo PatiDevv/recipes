@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { FakeDataItem } from '../../redux/global';
-import { Print, ShareSocial, Star, StarOutline } from 'react-ionicons';
+import { Print, ShareSocial } from 'react-ionicons';
 import GetRandomStar from '../atoms/GetRandomStar';
 
 const StyledTable = styled.div`

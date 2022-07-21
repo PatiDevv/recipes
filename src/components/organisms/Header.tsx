@@ -6,12 +6,13 @@ import SearchInput from '../atoms/Input/SearchInput';
 
 const StyedSearchInput = styled(SearchInput)`
   margin: 1%;
-  width: 50%;
+  width: 60%;
 `;
 
 const H2 = styled.h2`
-  margin: 0;
-  font-weight: 400;
+  margin: 0 0 0 2rem;
+  font-weight: 600;
+  font-size: 1.5rem;
 `;
 
 const StyledWrapper = styled.div`
@@ -23,11 +24,10 @@ const StyledWrapper = styled.div`
   height: 100px;
   margin: 0;
 
-  display: flex;
-  align-content: center;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
-  align-items: baseline;
+  display: grid;
+  grid-template-columns: 17rem auto;
+  align-items: center;
+
   box-shadow: rgba(0, 0, 0, 0.05) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
 `;
 
@@ -39,9 +39,6 @@ export const Header = () => {
     <StyledWrapper>
       <H2>Recipes ({recipes.length})</H2>
       <StyedSearchInput placeholder="Find Me - Your Perfect Recipe for Today" onChange={(e) => dispatch(globalSearch(e.target.value))}></StyedSearchInput>
-
-      <H2>Sort By</H2>
-      <H2>Filter</H2>
     </StyledWrapper>
   );
 };

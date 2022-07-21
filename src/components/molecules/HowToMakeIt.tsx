@@ -1,9 +1,6 @@
-import { useState } from 'react';
-import { CheckmarkCircle, Restaurant } from 'react-ionicons';
+import { Restaurant } from 'react-ionicons';
 import styled from 'styled-components';
 import { FakeDataItem } from '../../redux/global';
-import { theme } from '../../theme/mainTheme';
-import Counter from '../atoms/Counter';
 
 const H1 = styled.h1`
   color: #000;
