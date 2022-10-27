@@ -43,7 +43,8 @@ function CardUseGesture({ image }: CardInterface) {
     <animated.div
       ref={domTarget}
       className={`${drag ? 'dragging' : ''}`}
-      style={{ transform: 'perspective(600px)', x, y, scale: to([scale, zoom], (s, z) => s + z), rotateX, rotateY, rotateZ }}>
+      style={{ transform: 'perspective(600px)', x, y, scale: to([scale, zoom], (s, z) => s + z), rotateX, rotateY, rotateZ }}
+    >
       {image}
     </animated.div>
   );

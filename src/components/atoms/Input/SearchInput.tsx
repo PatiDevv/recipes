@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import magnifierIcon from "../../../images/magnifier.svg";
+import styled from 'styled-components';
+import magnifierIcon from '../../../images/magnifier.svg';
 
 const SearchInput = styled.input`
   border: none;

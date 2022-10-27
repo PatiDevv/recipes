@@ -9,7 +9,7 @@ import { useAppSelector } from '../redux/types';
 
 const StyledWrapper = styled.div`
   font-family: ${({ theme }) => theme.font.OpenSans};
- 
+
   background-color: #fff;
   background-size: 100%;
   width: 100vw;

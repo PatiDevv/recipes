@@ -22,7 +22,6 @@ export const Counter = ({ setValue, value }: CounterProps) => {
   );
 };
 
-
 const H2 = styled.h5`
   color: #000;
   margin: 0 3% 0 3%;
