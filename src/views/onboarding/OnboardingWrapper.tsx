@@ -7,17 +7,19 @@ interface OnboardingPageProps {
   currentIndex: number;
   title?: string;
   subtitle?: string;
+  question?: string;
   isBackButtonDisabled?: boolean;
   nextTitle?: string;
 }
 
-const OnboardingWrapper: FC<OnboardingPageProps> = ({ nextTitle, onNavigationPress, currentIndex, subtitle, title, isBackButtonDisabled = false, children }) => {
+const OnboardingWrapper: FC<OnboardingPageProps> = ({ nextTitle, onNavigationPress, currentIndex, subtitle, title, question, isBackButtonDisabled = false, children }) => {
   return (
     <Wrap>
       <WrapTitle>
-        {!!title && <H2>{title}</H2>}
-        {!!subtitle && <H5>{subtitle}</H5>}
-        <div style={{ margin: 20, alignSelf:"center" }}>{children}</div>
+        {!!title && <H1>{title}</H1>}
+        {!!question && <H2>{question}</H2>}
+        {!!subtitle && <H3>{subtitle}</H3>}
+       {!!children && <div style={{ margin: `15% 1rem 1rem 1rem`, alignSelf: 'center' }}>{children}</div>}
       </WrapTitle>
       <RowCenter>
         {isBackButtonDisabled !== true && <OnboardingButton onPress={() => onNavigationPress(currentIndex - 1)} title="Back" />}
@@ -38,7 +40,7 @@ const OnboardingButton = ({ onPress, title }: OnboardingButtonProps) => {
   return <Buttonn onClick={onPress}>{title}</Buttonn>;
 };
 
-const H2 = styled.h2`
+const H1 = styled.h1`
   color: #000;
   padding: 0;
   text-align: center;
@@ -47,11 +49,17 @@ const H2 = styled.h2`
   font-size: 2.5rem;
 `;
 
-const H5 = styled.h3`
- text-align: center;
- padding: 2em;
- font-weight: 400;
- `;
+const H2 = styled.h2`
+  text-align: center;
+  
+  font-weight: 400;
+`;
+
+const H3 = styled.h3`
+  text-align: center;
+  padding: 2em;
+  font-weight: 400;
+`;
 
 const WrapTitle = styled.div`
   flex: 1;

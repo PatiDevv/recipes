@@ -1,12 +1,14 @@
-import { useState } from 'react';
+import { SetStateAction, useState } from 'react';
 import styled from 'styled-components';
 import CardUseGesture from '../../animations/CardUseGesture';
+import { RadioInput } from '../../components/atoms/Input/RddioInput';
 import apple from '../../images/apple.png';
 import { Summary } from './components/Summary';
 import OnboardingWrapper from './OnboardingWrapper';
 
 export const Onboarding = () => {
   const [currentPageIndex, setCurrentPageIndex] = useState(0);
+  const [gender, setGender] = useState('');
   const [age, setAge] = useState('');
   const [weight, setWeight] = useState('');
   const [height, setHeight] = useState('');
@@ -29,35 +31,40 @@ export const Onboarding = () => {
               );
             case 1:
               return (
-                <OnboardingWrapper subtitle="Podaj nam swój wiek" {...defaultProps}>
-                  <Input value={age} onChange={({ target: { value } }) => setAge(value)} />
+                <OnboardingWrapper question="Podaj nam swóją płeć" {...defaultProps}>
+                  <RadioInput  label="kobieta" label2="mężczyzna" setSelectedRadioBtn={setGender} selectedRadioBtn={gender}/>
                 </OnboardingWrapper>
               );
             case 2:
               return (
-                <OnboardingWrapper  subtitle="Podaj nam swoją wagę" {...defaultProps}>
+                <OnboardingWrapper question="Podaj nam swój wiek" {...defaultProps}>
+                  <Input value={age} onChange={({ target: { value } }) => setAge(value)} />
+                </OnboardingWrapper>
+              );
+            case 3:
+              return (
+                <OnboardingWrapper question="Podaj nam swoją wagę" {...defaultProps}>
                   <Input value={weight} onChange={({ target: { value } }) => setWeight(value)} />
                 </OnboardingWrapper>
               );
-              case 3:
-                return (
-                  <OnboardingWrapper nextTitle="Finish" subtitle="Podaj nam swój wzrost" {...defaultProps}>
-                    <Input value={height} onChange={({ target: { value } }) => setHeight(value)} />
-                  </OnboardingWrapper>
-                );
+            case 4:
+              return (
+                <OnboardingWrapper nextTitle="Finish" question="Podaj nam swój wzrost" {...defaultProps}>
+                  <Input value={height} onChange={({ target: { value } }) => setHeight(value)} />
+                </OnboardingWrapper>
+              );
             default:
-              return(
-               <WrapSummary>
+              return (
+                <WrapSummary>
+                  <div style={{ display: 'flex', justifyContent: 'center', fontSize: '2rem' }}>Podsumowanie</div>
 
-                <div style={{display: "flex", justifyContent:"center", fontSize:"2rem"}}>Podsumowanie</div>
-                
-                <div style={{marginTop: "2rem"}}>
-                <Summary definition='Twój wiek:' value={age}/>
-                <Summary definition='Twoja waga:' value={weight}/>
-                <Summary definition='Twój wzrost:' value={height}/>
-                </div>
-                
-               </WrapSummary>
+                  <div style={{ marginTop: '2rem' }}>
+                    <Summary definition="Twój płeć:" value={gender} />
+                    <Summary definition="Twój wiek:" value={age} />
+                    <Summary definition="Twoja waga:" value={weight} />
+                    <Summary definition="Twój wzrost:" value={height} />
+                  </div>
+                </WrapSummary>
               );
           }
         })()}
@@ -67,7 +74,6 @@ export const Onboarding = () => {
     </Wrap>
   );
 };
-
 
 // const pages: OnboardingData[] = [
 //   {
@@ -95,8 +101,6 @@ export const Onboarding = () => {
 //     description: 'Twoja proponowana ilość kalorii + Twój cel zosatnie osiągnięty data',
 //   },
 // ];
-
-
 
 const WrapSummary = styled.div`
   display: flex;
@@ -139,4 +143,3 @@ const Input = styled.input`
   font-size: medium;
   text-align: center;
 `;
-
