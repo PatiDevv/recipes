@@ -15,15 +15,15 @@ interface OnboardingPageProps {
 const OnboardingWrapper: FC<OnboardingPageProps> = ({ nextTitle, onNavigationPress, currentIndex, subtitle, title, question, isBackButtonDisabled = false, children }) => {
   return (
     <Wrap>
-      <WrapTitle>
+      <div>
         {!!title && <H1>{title}</H1>}
         {!!question && <H2>{question}</H2>}
         {!!subtitle && <H3>{subtitle}</H3>}
-       {!!children && <div style={{ margin: `15% 1rem 1rem 1rem`, alignSelf: 'center' }}>{children}</div>}
-      </WrapTitle>
+      </div>
+        {!!children && <div>{children}</div>}
       <RowCenter>
-        {isBackButtonDisabled !== true && <OnboardingButton onPress={() => onNavigationPress(currentIndex - 1)} title="Back" />}
-        <OnboardingButton onPress={() => onNavigationPress(currentIndex + 1)} title={!!nextTitle ? nextTitle : 'Next'} />
+        {isBackButtonDisabled !== true && <OnboardingButton onPress={() => onNavigationPress(currentIndex - 1)} title="Wróć" />}
+        <OnboardingButton onPress={() => onNavigationPress(currentIndex + 1)} title={!!nextTitle ? nextTitle : 'Dalej'} />
       </RowCenter>
     </Wrap>
   );
@@ -45,7 +45,7 @@ const H1 = styled.h1`
   padding: 0;
   text-align: center;
   font-weight: 400;
-  margin: 0 10%;
+  margin: 5% 10%;
   font-size: 2.5rem;
 `;
 
@@ -61,13 +61,6 @@ const H3 = styled.h3`
   font-weight: 400;
 `;
 
-const WrapTitle = styled.div`
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  margin-bottom: -2rem;
-`;
-
 const Buttonn = styled(Button)`
   background-color: #60cf98;
   padding: 10px 50px;
@@ -81,9 +74,11 @@ const Buttonn = styled(Button)`
 const Wrap = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
   height: 100%;
   width: 100%;
-  padding: 7% 0;
+  padding: 4% 0;
 `;
 
 const RowCenter = styled.div`

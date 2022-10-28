@@ -92,7 +92,7 @@ const TabelWithTime = (itemRecipe: FakeDataItem) => {
 };
 
 function CalculateTime(time: number) {
-  return time < 60 ? time + 'm' : Math.floor(time / 60) + 'h' + ' ' + (time % 60) + 'm';
+  return time < 60 ? time + 'm' : Math.floor(time / 60) + 'h ' + (time % 60) + 'm';
 }
 
 function GetRandomNumber() {

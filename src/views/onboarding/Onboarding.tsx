@@ -1,17 +1,28 @@
-import { SetStateAction, useState } from 'react';
+import {  useState } from 'react';
 import styled from 'styled-components';
 import CardUseGesture from '../../animations/CardUseGesture';
-import { RadioInput } from '../../components/atoms/Input/RddioInput';
+import { RadioButton } from '../../components/atoms/Input/RadioButton';
 import apple from '../../images/apple.png';
 import { Summary } from './components/Summary';
 import OnboardingWrapper from './OnboardingWrapper';
 
+const PAL = {
+  "1,2": "Jestem osobą schorowaną, prowadzę głównie leżąco-siedzący tryb życia",
+  "1,4": "Jestem pracownikiem biurowym, moja aktywność poza pracą ogranicza się do wykonywania obowiązków domowych",
+  "1,6": "Jestem pracownikiem biurowym, moja aktywność poza pracą to 2-3 treningi po 1h",
+  "1,8": "Jestem pracownikiem fizycznym",
+  "2": "Jestem pracownikiem fizycznym i prowadzę aktywny tryb życia"
+}
+
+
 export const Onboarding = () => {
   const [currentPageIndex, setCurrentPageIndex] = useState(0);
-  const [gender, setGender] = useState('');
+  const [gender, setGender] = useState<string | undefined>(undefined)
   const [age, setAge] = useState('');
   const [weight, setWeight] = useState('');
+  const [targetWeight, setTargetWeight] = useState('');
   const [height, setHeight] = useState('');
+  const [pAL, setPAL] = useState<keyof typeof PAL | undefined>(undefined);
 
   const defaultProps = { onNavigationPress: setCurrentPageIndex, currentIndex: currentPageIndex };
 
@@ -31,38 +42,62 @@ export const Onboarding = () => {
               );
             case 1:
               return (
-                <OnboardingWrapper question="Podaj nam swóją płeć" {...defaultProps}>
-                  <RadioInput  label="kobieta" label2="mężczyzna" setSelectedRadioBtn={setGender} selectedRadioBtn={gender}/>
+                <OnboardingWrapper question="Podaj nam swoją płeć" {...defaultProps}>
+                  <RadioButton.Group onValueChange={setGender} value={gender} >
+                    <RadioButton.Item label="Kobieta" value="Kobieta"/>
+                    <RadioButton.Item label="Mężczyzna" value="Mężczyzna"/>
+                  </RadioButton.Group>
                 </OnboardingWrapper>
               );
             case 2:
               return (
                 <OnboardingWrapper question="Podaj nam swój wiek" {...defaultProps}>
-                  <Input value={age} onChange={({ target: { value } }) => setAge(value)} />
+                  <Input type="number" value={age} onChange={({ target: { value } }) => setAge(value)} />
                 </OnboardingWrapper>
               );
             case 3:
               return (
-                <OnboardingWrapper question="Podaj nam swoją wagę" {...defaultProps}>
-                  <Input value={weight} onChange={({ target: { value } }) => setWeight(value)} />
+                 <OnboardingWrapper question="Podaj nam swój wzrost (cm)" {...defaultProps}>
+                   <Input type="number"  value={height} onChange={({ target: { value } }) => setHeight(value)} />
                 </OnboardingWrapper>
-              );
+                );
             case 4:
               return (
-                <OnboardingWrapper nextTitle="Finish" question="Podaj nam swój wzrost" {...defaultProps}>
-                  <Input value={height} onChange={({ target: { value } }) => setHeight(value)} />
+                <OnboardingWrapper question="Podaj nam swoją wagę" {...defaultProps}>
+                  <Input type="number" value={weight} onChange={({ target: { value } }) => setWeight(value)} />
                 </OnboardingWrapper>
               );
+           case 5:
+             return (
+                <OnboardingWrapper question="Podaj nam swoją docelową wagę" {...defaultProps}>
+                  <Input type="number" value={targetWeight} onChange={({ target: { value } }) => setTargetWeight(value)} />
+                </OnboardingWrapper>
+              );
+          case 6:
+             return (
+                <OnboardingWrapper nextTitle="Finish" question="Jaki jest Twój styl życia" {...defaultProps}>
+                  <RadioButton.Group onValueChange={val => setPAL(val as keyof typeof PAL)} value={pAL} >
+                    <RadioButton.Item label={PAL['1,2']} value={"1,2"}/>
+                    <RadioButton.Item label={PAL['1,4']} value={"1,4"}/>
+                    <RadioButton.Item label={PAL['1,6']} value={"1,6"}/>
+                    <RadioButton.Item label={PAL['1,8']} value={"1,8"}/>
+                    <RadioButton.Item label={PAL['2']} value={"2"}/>
+                  </RadioButton.Group>
+                </OnboardingWrapper>
+              );
+           
             default:
               return (
                 <WrapSummary>
                   <div style={{ display: 'flex', justifyContent: 'center', fontSize: '2rem' }}>Podsumowanie</div>
 
                   <div style={{ marginTop: '2rem' }}>
-                    <Summary definition="Twój płeć:" value={gender} />
+                    <Summary definition="Twój płeć:" value={gender!} />
                     <Summary definition="Twój wiek:" value={age} />
                     <Summary definition="Twoja waga:" value={weight} />
+                    <Summary definition="Twoja docelowa waga:" value={targetWeight} />
                     <Summary definition="Twój wzrost:" value={height} />
+                    <Summary definition="Twój wzkaźnik aktywności:" value={PAL[pAL!]} />
                   </div>
                 </WrapSummary>
               );
@@ -74,33 +109,6 @@ export const Onboarding = () => {
     </Wrap>
   );
 };
-
-// const pages: OnboardingData[] = [
-//   {
-//     description: 'Witamy Cię w kreatorze jadłospisu, zanim go dosatniesz musimy dowiedzieć się o Tobie kilku rzeczy',
-//   },
-//   {
-//     description: 'Podaj nam swój wiek',
-//   },
-//   {
-//     description: 'Podaj nam swoją wagę',
-//   },
-//   {
-//     description: 'Podaj nam swój wzrost',
-//   },
-//   {
-//     description: 'Podaj nam swój cel',
-//   },
-//   {
-//     description: 'Jeżeli cel masa lub redukcja, Podaj nam tempo redukcji/masy',
-//   },
-//   {
-//     description: 'Podaj preferowaną ilość posiłków',
-//   },
-//   {
-//     description: 'Twoja proponowana ilość kalorii + Twój cel zosatnie osiągnięty data',
-//   },
-// ];
 
 const WrapSummary = styled.div`
   display: flex;
