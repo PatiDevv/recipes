@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import Button from '../../components/atoms/Button/Button';
 
 interface OnboardingPageProps {
@@ -10,9 +10,10 @@ interface OnboardingPageProps {
   question?: string;
   isBackButtonDisabled?: boolean;
   nextTitle?: string;
+  isSummary?: boolean;
 }
 
-const OnboardingWrapper: FC<OnboardingPageProps> = ({ nextTitle, onNavigationPress, currentIndex, subtitle, title, question, isBackButtonDisabled = false, children }) => {
+const OnboardingWrapper: FC<OnboardingPageProps> = ({ nextTitle, onNavigationPress, currentIndex, subtitle, title, question, isBackButtonDisabled = false, children, isSummary }) => {
   return (
     <Wrap>
       <div>
@@ -20,7 +21,7 @@ const OnboardingWrapper: FC<OnboardingPageProps> = ({ nextTitle, onNavigationPre
         {!!question && <H2>{question}</H2>}
         {!!subtitle && <H3>{subtitle}</H3>}
       </div>
-        {!!children && <div>{children}</div>}
+        {!!children && <WrapChildren isSummary={isSummary}>{children}</WrapChildren>}
       <RowCenter>
         {isBackButtonDisabled !== true && <OnboardingButton onPress={() => onNavigationPress(currentIndex - 1)} title="Wróć" />}
         <OnboardingButton onPress={() => onNavigationPress(currentIndex + 1)} title={!!nextTitle ? nextTitle : 'Dalej'} />
@@ -51,8 +52,8 @@ const H1 = styled.h1`
 
 const H2 = styled.h2`
   text-align: center;
-  
   font-weight: 400;
+  border-bottom: 2px solid #60cf98;
 `;
 
 const H3 = styled.h3`
@@ -84,4 +85,25 @@ const Wrap = styled.div`
 const RowCenter = styled.div`
   display: flex;
   justify-content: center;
+`;
+
+ interface isSummary {
+  isSummary?: boolean;
+}
+
+const WrapChildren = styled.div<isSummary>`
+  border: 1px solid #60cf98;
+  padding: 2.5rem;
+  border-radius: 1rem;
+  min-width: 25rem;
+  min-height: 10rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  ${({ isSummary }) =>
+    isSummary &&
+    css`
+      flex-direction: column;
+      align-items: flex-start;
+    `}
 `;
