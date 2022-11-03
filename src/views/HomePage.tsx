@@ -92,7 +92,7 @@ const StyledH2 = styled.h2`
   text-align: center;
 `;
 
-const StyledLink = styled(Link)`
+export const StyledLink = styled(Link)`
   text-decoration: none;
   color: #fff;
   padding: 10px 20px;
