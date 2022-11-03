@@ -89,7 +89,7 @@ const Figcaption = styled.figcaption`
   top: calc(80%);
   width: 100%;
 
-  background-color: #60cf98;
+  background-color: ${({ theme }) => theme.colors.lightGreen};
   padding: 0 10px 100px 10px;
 
   :before {

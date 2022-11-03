@@ -9,7 +9,7 @@ const WrapNutritionValueSingle = styled.div`
   font-family: ${({ theme }) => theme.font.OpenSans};
   font-size: 80%;
   color: white;
-  background-color: #60cf98;
+  background-color: ${({ theme }) => theme.colors.lightGreen};
   border-radius: 8px;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
 

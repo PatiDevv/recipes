@@ -53,7 +53,7 @@ const H1 = styled.h1`
 const H2 = styled.h2`
   text-align: center;
   font-weight: 400;
-  border-bottom: 2px solid #60cf98;
+  border-bottom: 2px solid ${({ theme }) => theme.colors.lightGreen};
 `;
 
 const H3 = styled.h3`
@@ -92,7 +92,7 @@ const RowCenter = styled.div`
 }
 
 const WrapChildren = styled.div<isSummary>`
-  border: 1px solid #60cf98;
+  border: 1px solid ${({ theme }) => theme.colors.lightGreen};
   padding: 2.5rem;
   border-radius: 1rem;
   min-width: 25rem;
