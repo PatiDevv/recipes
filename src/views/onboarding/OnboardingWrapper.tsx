@@ -14,7 +14,18 @@ interface OnboardingPageProps {
   isEmptyInput?: boolean;
 }
 
-const OnboardingWrapper: FC<OnboardingPageProps> = ({ nextTitle, onNavigationPress, currentIndex, subtitle, title, question, isBackButtonDisabled = false, children, isSummary, isEmptyInput }) => {
+const OnboardingWrapper: FC<OnboardingPageProps> = ({
+  nextTitle,
+  onNavigationPress,
+  currentIndex,
+  subtitle,
+  title,
+  question,
+  isBackButtonDisabled = false,
+  children,
+  isSummary,
+  isEmptyInput,
+}) => {
   return (
     <Wrap>
       <div>
@@ -22,10 +33,10 @@ const OnboardingWrapper: FC<OnboardingPageProps> = ({ nextTitle, onNavigationPre
         {!!question && <H2>{question}</H2>}
         {!!subtitle && <H3>{subtitle}</H3>}
       </div>
-        {!!children && <WrapChildren isSummary={isSummary}>{children}</WrapChildren>}
+      {!!children && <WrapChildren isSummary={isSummary}>{children}</WrapChildren>}
       <RowCenter>
         {isBackButtonDisabled !== true && <OnboardingButton onPress={() => onNavigationPress(currentIndex - 1)} title="Wróć" />}
-       {isEmptyInput !== true && <OnboardingButton title={!!nextTitle ? nextTitle : 'Dalej'} onPress={ () => onNavigationPress(currentIndex + 1)   } />} 
+        {isEmptyInput !== true && <OnboardingButton title={!!nextTitle ? nextTitle : 'Dalej'} onPress={() => onNavigationPress(currentIndex + 1)} />}
       </RowCenter>
     </Wrap>
   );
@@ -88,7 +99,7 @@ const RowCenter = styled.div`
   justify-content: center;
 `;
 
- interface isSummary {
+interface isSummary {
   isSummary?: boolean;
 }
 

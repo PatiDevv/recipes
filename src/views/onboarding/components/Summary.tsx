@@ -6,9 +6,10 @@ interface SummaryProp {
 }
 
 export const Summary = ({ definition, value }: SummaryProp) => {
-  return (<Label> <H5>{definition}</H5> <H5 style={{fontWeight:800}}>{value}</H5></Label>
-   
-    
+  return (
+    <Label>
+      <H5>{definition}</H5> <H5 style={{ fontWeight: 800 }}>{value}</H5>
+    </Label>
   );
 };
 
@@ -20,5 +21,5 @@ const H5 = styled.h5`
 `;
 
 const Label = styled.label`
-  display:flex;
+  display: flex;
 `;
