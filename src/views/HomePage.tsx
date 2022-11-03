@@ -123,7 +123,7 @@ const HomePage = () => {
             <StyledLink to={`/all`}> Explore recipes</StyledLink>
           </Button>
           <Button>
-            <StyledLink to={`/onboarding`}> Give me menu</StyledLink>
+            <StyledLink to={`/onboarding`}> Here we go</StyledLink>
           </Button>
         </WrapButton>
       </MainText>

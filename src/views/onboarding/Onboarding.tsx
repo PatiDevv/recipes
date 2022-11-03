@@ -146,4 +146,5 @@ const Input = styled.input`
   font-size: xx-large;
   text-align: center;
   max-width: 10rem;
+  min-height: 3rem;
 `;
