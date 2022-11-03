@@ -1,9 +1,11 @@
 import {  useState } from 'react';
 import styled from 'styled-components';
 import CardUseGesture from '../../animations/CardUseGesture';
+import Button from '../../components/atoms/Button/Button';
 import { RadioButton } from '../../components/atoms/Input/RadioButton';
 import { caloricDemand } from '../../helpers/caloricDemand';
 import apple from '../../images/apple.png';
+import { StyledLink } from '../HomePage';
 import { Summary } from './components/Summary';
 import OnboardingWrapper from './OnboardingWrapper';
 
@@ -131,7 +133,7 @@ export const Onboarding = () => {
                       <Summary definition="Waga:" value={weight + " kg"} />
                       <Summary definition="Docelowa waga:" value={targetWeight + " kg"} />
                       <Summary definition="Wzrost:" value={height + " cm"} />
-                      <Summary definition="Tryb życia" value={PAL[pAL!]} />
+                      <Summary definition="Tryb życia:" value={PAL[pAL!]} />
                       <Summary definition="Tempo zmiany:" value={GOAL[goal!]} />
                    </OnboardingWrapper>
                  );
@@ -139,19 +141,25 @@ export const Onboarding = () => {
             default:
               return (
                 <WrapSummary>
-                  <div style={{ display: 'flex', justifyContent: 'center', fontSize: '2rem' }}>Podsumowanie</div>
-
-                  <div style={{ marginTop: '2rem' }}>
-                   
-                    <Summary definition="Twoja podstawowa przemiana materii:" value={pPM} />
-                    <Summary definition="Twóje całkowita przemiana materii:" value={cPM} />
-                    <Summary definition="Twój cel" value={weightGoal} />
-                    <Summary definition="Czas na osiągnięcie Twojego celu" value={time} />
-                    <Summary definition="Ilosc kalorii zmienna" value={quantityCalories} />
-                    <Summary definition="Twoja ilosc kalorii którą powinienies spoywać aby osiągnoac twoj cel" value={calorieToWeight} />
-                    
-                   
-                   
+                  <label style={{marginBottom: "3rem", fontSize:"2rem"}}>Podsumowanie</label>
+                  <div>
+                    <Summary definition="Cel:" value={weightGoal + " kg"} />
+                    <Summary definition="Czas na osiągnięcie celu:" value={time + " tygodni"} />
+                    {isWeightHigherThanTargetWeight ? <Summary definition="Deficyt kaloryczny:" value={quantityCalories + " kcal"} /> : <Summary definition="Nadwyżka kaloryczna: " value={quantityCalories + " kcal"} />}
+                    <br/>
+                    <Summary definition="Podstawowa przemiana materii:" value={pPM + " kcal"} />
+                    <Summary definition="Całkowita przemiana materii:" value={cPM + " kcal"} />
+                    <br/>
+                    <MainSummary>
+                      <label>Dzienna dawka kalorii</label>
+                      <label style={{fontWeight:800}}>{calorieToWeight}</label>
+                    </MainSummary>
+                    <br/>
+                    <ButtonContainer>
+                    <Button>
+                      <StyledLink to={`/all`}>Jestem gotowy na zmianę</StyledLink>
+                    </Button>
+                    </ButtonContainer>
                   </div>
                 </WrapSummary>
               );
@@ -165,11 +173,13 @@ export const Onboarding = () => {
 };
 
 const WrapSummary = styled.div`
+
   display: flex;
   flex-direction: column;
+  align-items: center;
   height: 100%;
   width: 100%;
-  padding: 7% 0;
+  padding: 4% 4%;
 `;
 
 const Wrap = styled.div`
@@ -200,10 +210,23 @@ const Image = styled.img`
 const Input = styled.input`
   border: none;
   border-bottom: solid 2px ${({ theme }) => theme.colors.lightGreen};
-  height: 30px;
+  height: 1.875rem;
   outline-style: none;
-  font-size: medium;
+  font-size: xx-large;
   text-align: center;
+  max-width: 10rem;
 `;
 
+const MainSummary = styled.div`
+display: flex;
+flex-direction: column;
+align-items: center;
+border: 1px solid ${({ theme }) => theme.colors.lightGreen};
+border-radius: 0.5rem;
+`;
 
+const ButtonContainer = styled.div`
+    width: 100%;
+    display: flex;
+    justify-content: center;
+`;
